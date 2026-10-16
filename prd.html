@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PRD | Bodepu Mounika</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+:root{--bg:#0B0E11;--p:#12161B;--line:rgba(231,233,234,.10);--ls:rgba(231,233,234,.18);--text:#E7E9EA;--dim:rgba(231,233,234,.64);--dimmer:rgba(231,233,234,.4);--sig:#5EEAD4;--flag:#F2A93B;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'Inter',-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.c{max-width:920px;margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:50;background:rgba(11,14,17,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .c{display:flex;justify-content:space-between;align-items:center;height:60px;font-family:var(--mono);font-size:13px}
+nav span{color:var(--sig)}nav a:hover{color:var(--sig)}
+.sw{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 26px}
+.sw a{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--ls);color:var(--dim)}
+.sw a.on{border-color:var(--sig);color:var(--sig)}
+.ey{font-family:var(--mono);font-size:12px;color:var(--sig)}
+h1{font-size:clamp(26px,4.5vw,38px);letter-spacing:-.02em;margin:8px 0 10px}
+.sum{color:var(--dim);max-width:62ch}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.meta div{background:var(--bg);padding:12px 14px}
+.k{font-family:var(--mono);font-size:10.5px;color:var(--dimmer);margin-bottom:3px}
+.v{font-size:14px;font-weight:600}
+@media(max-width:640px){.meta{grid-template-columns:1fr 1fr}}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:34px 0 28px;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--dim);font-family:var(--mono);font-size:12.5px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.tabs button.on{color:var(--sig);border-color:var(--sig)}
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.pn{display:none;padding-bottom:70px}.pn.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+h3{font-size:15px;margin:32px 0 12px}h3:first-child{margin-top:0}
+.t{color:var(--dim);font-size:14.5px;max-width:64ch}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.g2{grid-template-columns:1fr}}
+.bx{border:1px solid var(--line);background:var(--p);padding:18px}
+.bx ul{list-style:none}
+.bx li{font-size:13.5px;color:var(--dim);padding:4px 0 4px 16px;position:relative}
+.bx li::before{content:"+";position:absolute;left:0;color:var(--sig)}
+.bx.out li::before{content:"–";color:var(--flag)}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+@media(max-width:640px){.kp{grid-template-columns:1fr}}
+.kp div{border:1px solid var(--line);background:var(--p);padding:16px}
+.kp b{display:block;font-family:var(--mono);font-size:21px;color:var(--sig);margin-bottom:4px}
+.kp span{font-size:12.5px;color:var(--dim)}
+.rw{display:grid;grid-template-columns:44px 1fr 56px 92px;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:13.5px}
+.rw.h{font-family:var(--mono);font-size:10.5px;color:var(--dimmer);border-top:0}
+.rw .id{font-family:var(--mono);color:var(--dimmer);font-size:12px}
+.rw.m{grid-template-columns:1.1fr 1.5fr 84px}
+.ch{font-family:var(--mono);font-size:10.5px;padding:2px 8px;border:1px solid var(--ls);text-align:center;white-space:nowrap;color:var(--dimmer)}
+.p0,.sw2{color:var(--flag);border-color:var(--flag)}.p1,.sd{color:var(--sig);border-color:var(--sig)}
+@media(max-width:640px){.rw,.rw.m{grid-template-columns:34px 1fr}.rw.m{grid-template-columns:1fr}.rw .ch{justify-self:start}.rw.h{display:none}}
+.road{display:flex}
+.rs{flex:1;position:relative;padding-top:24px;font-family:var(--mono);font-size:11.5px;color:var(--dimmer)}
+.rs::before{content:"";position:absolute;top:6px;left:0;right:0;height:1px;background:var(--ls)}
+.rs::after{content:"";position:absolute;top:1px;left:0;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--dimmer)}
+.rs.done{color:var(--dim)}.rs.done::after{background:var(--sig);border-color:var(--sig)}
+.rs.now{color:var(--flag)}.rs.now::after{border-color:var(--flag);animation:pl 1.8s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 6px rgba(242,169,59,.18)}}
+.lg{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.lg i{display:inline-block;width:9px;height:9px;margin-right:6px;background:var(--lc)}
+.flow{max-width:660px}
+.nd{display:grid;grid-template-columns:78px 1fr;gap:16px;position:relative;padding-bottom:20px;animation:in .45s ease backwards;animation-delay:calc(var(--i)*.13s)}
+.nd::before{content:"";position:absolute;left:38px;top:28px;bottom:-4px;width:1px;background:var(--ls)}
+.nd:last-child::before{display:none}
+.nd::after{content:"";position:absolute;left:36px;top:28px;width:5px;height:5px;border-radius:50%;background:var(--lc);animation:dr 2.6s linear infinite;animation-delay:calc(var(--i)*.4s)}
+.nd:last-child::after{display:none}
+@keyframes dr{from{transform:translateY(0);opacity:1}to{transform:translateY(40px);opacity:0}}
+.ln{font-family:var(--mono);font-size:10.5px;text-align:center;padding:5px 0;border:1px solid var(--lc);color:var(--lc);height:fit-content;background:var(--bg);position:relative;z-index:1}
+.nb{border:1px solid var(--line);background:var(--p);padding:12px 14px;font-size:13.5px;border-left:2px solid var(--lc)}
+.nb.d{border-style:dashed;border-left-style:solid}
+.nb small{display:block;margin-top:6px;color:var(--flag);font-family:var(--mono);font-size:11.5px}
+.tm{display:flex;flex-wrap:wrap;gap:8px}
+.tm span{font-family:var(--mono);font-size:11.5px;color:var(--sig);border:1px solid rgba(94,234,212,.35);padding:5px 10px}
+.nx{border-top:1px solid var(--line);padding:26px 0 60px;font-family:var(--mono);font-size:12.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.nx a{color:var(--sig)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.nd{opacity:1}}
+</style></head>
+<body>
+<nav><div class="c"><a href="index.html">bodepu<span>.</span>mounika</a><a href="index.html#work">← Portfolio</a></div></nav>
+<main class="c" id="app"></main>
+<script>
+const LC={User:"#5EEAD4",App:"#8FA3B8",AI:"#F2A93B",Reviewer:"#B79CFF"};
+const P={
+protein:{name:"Budget Protein Recipe Advisor",tag:"Live",ver:"v1.x",status:"Shipped",
+ sum:"Budget- and protein-aware dish recommendations from what is already in your kitchen, with the cheapest fix when the protein target is missed.",
+ prob:"Hitting a daily protein target on a fixed budget means comparing what is already in the kitchen against what is affordable to buy. Done manually this takes about 15 minutes a day and is rarely optimised. Existing apps cover recipes (Blinkit's Recipe Rover) or step and calorie tracking (HealthifyMe), but none connect tracking to a budget-aware protein recommendation in one flow.",
+ users:[["Primary user","People who plan meals around a daily protein target and a tight food budget."],["First user","The builder. The idea came from a personal, daily problem."]],
+ goals:["Return a protein-meeting dish in under a minute","Label every price and protein figure as an estimate, never with false confidence","Close any protein gap with the single cheapest purchase"],
+ inn:["Budget, protein target and protein already eaten as inputs","Kitchen items by dropdown or manual entry, plus an 'I have nothing' option","Dish options sorted by cost","One cheapest item to buy when the target is missed","Calorie tracker, steps page and sign-in"],
+ out:["Live store pricing (all figures are estimates)","Auto-linking the calorie tracker to the home page, kept separate for now","Collecting phone numbers (email and name only)","Photo-based food logging (v3)"],
+ kpi:[["< 1 min","Time to a recommendation, vs ~15 min manual"],["5 of 7","Days target met in budget over a 2-3 week trial"],["3","Named risks designed against"]],
+ req:[["P0","Accept budget, protein target and protein already consumed","Done"],["P0","Accept kitchen items (dropdown and manual) and an 'I have nothing' option","Done"],["P0","Return dish options from current ingredients, sorted by cost","Done"],["P0","If the target is unmet, suggest the single most budget-efficient item to buy, kept separate from makeable dishes","Done"],["P0","Label every price and protein value as an estimate","Done"],["P1","Ask the user to clarify when protein could be double-counted across pages","Done"],["P1","Calorie tracker with per-item macros and daily totals","Done"],["P1","Sign-in and accounts (Supabase)","Done"],["P2","Daily steps and calorie-burn estimate","Done"],["P2","Food intake by photo, with daily and monthly weight analysis","Planned"]],
+ road:[["Discover","done"],["Define","done"],["Prioritize","done"],["Build","done"],["Measure","now"]],
+ flow:[["User","Enters budget, protein target, protein eaten and kitchen items"],["App","Validates inputs and checks for possible double-counting","If unclear: ask the user to clarify before continuing"],["AI","Gemini drafts dish options from current ingredients only, under strict no-invention rules"],["App","Sorts dishes by cost and checks the protein target"],["App","Is the protein target met?","No: AI picks the single most budget-efficient item to buy. Yes: skip to results."],["App","Shows recipe cards with every figure labelled as an estimate"],["User","Cooks, logs calories and steps, and adjusts the next day"]],
+ met:[["Time to recommendation","< 1 min vs ~15 min manual","Leading"],["Target met within budget","5 of 7 days, 2-3 week trial","Outcome"],["Estimate labelling","Every price and protein value labelled","Guardrail"]],
+ risk:[["Price and protein estimates may differ at the actual store","Every figure is explicitly labelled as an estimate"],["The AI invents a nutritionally unrealistic dish","Explicit prompt rules against invention, plus manual edge-case testing"],["Protein logged on two pages silently overlaps","A disambiguating question makes the user clarify instead of the system guessing"],["An assumed purchase blended into dishes makeable now","Prompt tightened to separate current-ingredient dishes from suggested purchases, then re-tested"]],
+ terms:["PRD","Discover, Define, Prioritize, Build, Measure","Scope pivot","Leading vs outcome metric","Competitive analysis","MVP","Prompt engineering","Structured output","Hallucination guardrails","Disambiguation UX","Unit economics"]},
+fraud:{name:"Fraud Detection Copilot",tag:"In progress",ver:"v0.1 draft",status:"Draft",
+ sum:"An AI copilot that flags anomalous transactions and drafts a plain-language investigation note, so a human analyst can decide faster.",
+ prob:"Fraud analysts triage long queues of flagged transactions and write investigation notes by hand. Most flags are false positives, so review time goes into explaining why something looks odd rather than deciding. This project tests whether a grounded LLM can draft that explanation while the analyst keeps the decision.",
+ users:[["Primary user","Fraud or risk analyst reviewing flagged transactions."],["Secondary user","Compliance owner who needs an audit trail of why each decision was made."]],
+ goals:["Flag unusual transactions with a transparent rule or score","Draft a plain-language note for every flag, grounded in the transaction's own fields","Keep the analyst as the final decision-maker"],
+ inn:["Public Kaggle credit-card fraud dataset","Rule-based or statistical anomaly flagging","LLM-drafted investigation note per flag","Streamlit review dashboard"],
+ out:["Real bank or customer data","Automatic blocking of transactions","Production-grade model training"],
+ kpi:[["Kaggle","Public dataset, no customer data"],["Human-in-loop","The analyst makes every final call"],["Draft","Metrics below are proposed, baseline first"]],
+ req:[["P0","Load and explore the transaction data","Planned"],["P0","Flag anomalies with a transparent rule or statistical threshold","Planned"],["P0","Generate an investigation note per flag, grounded in the transaction's fields","Planned"],["P0","Dashboard to review the flagged queue, with confirm and dismiss","Planned"],["P1","Show which signals caused each flag","Planned"],["P1","Log analyst decisions for audit","Planned"],["P2","Use decisions to tune thresholds","Planned"]],
+ road:[["Discover","done"],["Define","now"],["Build","next"],["Measure","next"]],
+ flow:[["App","Loads transactions from the public dataset"],["App","Scores each transaction against anomaly rules"],["App","Is the transaction flagged?","No: stays in normal flow. Yes: added to the review queue."],["AI","Drafts an investigation note from the flagged fields only"],["Reviewer","Reviews the flag, the signals and the note"],["Reviewer","Confirms fraud or dismisses as a false positive"],["App","Logs the decision for audit and informs threshold tuning"]],
+ met:[["Flag precision","Share of flags that are real anomalies","Quality"],["Recall on known fraud","Share of known fraud caught","Quality"],["Time to review one alert","Lower than writing the note manually","Leading"],["Notes accepted with little editing","Share of AI notes the analyst keeps","Guardrail"]],
+ risk:[["Fraud is rare, so plain accuracy misleads (class imbalance)","Judge on precision and recall, not accuracy"],["Too many false positives overwhelm reviewers","Tune the threshold against reviewer workload"],["The LLM invents a reason that is not in the data","Ground notes in the transaction's own fields; the analyst verifies"],["Sensitive data exposure","Public dataset only; no real customer data"]],
+ terms:["Anomaly detection","Class imbalance","Precision and recall","False positive rate","Alert triage","Human-in-the-loop","Explainability","Audit trail","Model risk","Prompt grounding"]},
+jobs:{name:"Job Search Copilot",tag:"In progress",ver:"v0.1 draft",status:"Draft",
+ sum:"A resume-to-job-description fit analyzer that shows strengths, gaps and honest tailoring suggestions.",
+ prob:"Tailoring a resume to each job description is slow, and it is easy to overstate experience while doing it. Job seekers need fast, honest feedback on fit and a clear view of the gaps, not generic keyword stuffing.",
+ users:[["Primary user","Job seekers applying to many roles who need quick, honest fit feedback."],["First user","The builder, during an active job search."]],
+ goals:["Score resume-to-JD fit with reasons, not just a number","Show gaps and suggest tailored wording","Never suggest experience that is not in the resume"],
+ inn:["Resume and job description text as inputs","Gemini-based fit analysis","Strengths, gaps and tailoring suggestions","Streamlit interface (planned)"],
+ out:["Auto-applying to jobs","Rewriting the resume without the user's approval","Scraping job boards"],
+ kpi:[["Working","Python and Gemini API, end to end"],["Planned","Streamlit interface"],["Honest","No invented experience"]],
+ req:[["P0","Accept resume and job description text","Done"],["P0","Return a fit analysis from the Gemini API","Done"],["P0","List matched strengths and gaps with reasons","In progress"],["P1","Suggest tailored bullet wording","Planned"],["P1","Flag suggestions that claim experience not in the resume","Planned"],["P1","Streamlit interface","Planned"],["P2","Save analyses per role","Planned"]],
+ road:[["Discover","done"],["Define","done"],["Build","now"],["Measure","next"]],
+ flow:[["User","Pastes a resume and a job description"],["App","Cleans and structures both texts"],["AI","Compares skills, experience and keywords against the requirements"],["AI","Returns a fit assessment with reasons, strengths and gaps"],["App","Does a suggestion claim something not in the resume?","Yes: flag it as possible fabrication. No: show it."],["User","Reviews, edits and decides what to apply"]],
+ met:[["Usefulness of the fit result","Rated by the user per analysis","Leading"],["Time to tailor one resume","Lower than the manual process","Outcome"],["Fabrication flags raised","Tracked and reviewed","Guardrail"]],
+ risk:[["A precise-looking score hides uncertainty","Show reasons and bands instead of a single exact number"],["The AI suggests experience the user does not have","Flag unsupported claims for review"],["Resume data is personal","Do not store resumes by default"]],
+ terms:["Semantic matching","ATS keywords","Fit scoring","Prompt design","Structured output","Hallucination guardrails","Privacy by design","User research"]}
+};
+const key=new URLSearchParams(location.search).get("p"),k=P[key]?key:"protein",d=P[k];
+document.title=d.name+" PRD | Bodepu Mounika";
+const li=a=>a.map(x=>`<li>${x}</li>`).join("");
+const st={Done:"sd","In progress":"sw2",Planned:""};
+const T={
+ "Overview":`<h3>Problem</h3><p class="t">${d.prob}</p>
+  <h3>Who it is for</h3><div class="g2">${d.users.map(u=>`<div class="bx"><div class="k">${u[0].toUpperCase()}</div><p class="t">${u[1]}</p></div>`).join("")}</div>
+  <h3>Goals</h3><div class="bx"><ul>${li(d.goals)}</ul></div>
+  <div class="kp">${d.kpi.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>
+  <h3>Scope</h3><div class="g2"><div class="bx"><div class="k">IN SCOPE</div><ul>${li(d.inn)}</ul></div><div class="bx out"><div class="k">OUT OF SCOPE</div><ul>${li(d.out)}</ul></div></div>
+  <h3>Roadmap</h3><div class="road">${d.road.map(r=>`<div class="rs ${r[1]}">${r[0]}</div>`).join("")}</div>`,
+ "Requirements":`<div class="rw h"><span>ID</span><span>Requirement</span><span>Priority</span><span>Status</span></div>${d.req.map((r,i)=>`<div class="rw"><span class="id">R${i+1}</span><span>${r[1]}</span><span class="ch ${r[0].toLowerCase()}">${r[0]}</span><span class="ch ${st[r[2]]}">${r[2]}</span></div>`).join("")}`,
+ "Workflow":`<div class="lg">${Object.keys(LC).map(l=>`<span style="--lc:${LC[l]}"><i></i>${l}</span>`).join("")}</div><div class="flow">${d.flow.map((n,i)=>`<div class="nd" style="--i:${i};--lc:${LC[n[0]]}"><div class="ln">${n[0]}</div><div class="nb ${n[2]?"d":""}">${n[1]}${n[2]?`<small>${n[2]}</small>`:""}</div></div>`).join("")}</div>`,
+ "Metrics and risks":`<h3>Success metrics</h3><div class="rw m h"><span>Metric</span><span>Target</span><span>Type</span></div>${d.met.map(m=>`<div class="rw m"><span>${m[0]}</span><span class="t">${m[1]}</span><span class="ch">${m[2]}</span></div>`).join("")}<h3>Risks and mitigations</h3><div class="g2">${d.risk.map(r=>`<div class="bx"><div class="k">RISK</div><div class="v">${r[0]}</div><div class="k" style="margin-top:12px">MITIGATION</div><p class="t">${r[1]}</p></div>`).join("")}</div>`,
+ "Terms":`<p class="t" style="margin-bottom:18px">Product and technical concepts this project exercised.</p><div class="tm">${d.terms.map(x=>`<span>${x}</span>`).join("")}</div>`
+};
+const names=Object.keys(T),keys=Object.keys(P),nx=P[keys[(keys.indexOf(k)+1)%keys.length]];
+app.innerHTML=`<div class="sw">${keys.map(x=>`<a href="?p=${x}" class="${x==k?"on":""}">${P[x].name}</a>`).join("")}</div>
+<div class="ey">Product requirements document · ${d.tag}</div><h1>${d.name}</h1><p class="sum">${d.sum}</p>
+<div class="meta"><div><div class="k">OWNER</div><div class="v">Mounika Bodepu</div></div><div><div class="k">STATUS</div><div class="v">${d.status}</div></div><div><div class="k">VERSION</div><div class="v">${d.ver}</div></div><div><div class="k">UPDATED</div><div class="v">Oct 2026</div></div></div>
+<div class="tabs" role="tablist">${names.map((n,i)=>`<button role="tab" data-i="${i}" class="${i?"":"on"}">${n}</button>`).join("")}</div>
+${names.map((n,i)=>`<section class="pn ${i?"":"on"}" id="p${i}">${T[n]}</section>`).join("")}
+<div class="nx"><a href="index.html#work">← Back to portfolio</a><a href="?p=${keys[(keys.indexOf(k)+1)%keys.length]}">Next: ${nx.name} →</a></div>`;
+document.querySelector(".tabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;
+ document.querySelectorAll(".tabs button,.pn").forEach(x=>x.classList.remove("on"));b.classList.add("on");document.getElementById("p"+b.dataset.i).classList.add("on")};
+</script>
+<script src="bg.js"></script>
+</body></html>
