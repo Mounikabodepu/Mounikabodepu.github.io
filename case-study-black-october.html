@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black October: Inside PHP2Shell — Case Study | Bodepu Mounika</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--bg:#0B0E11;--panel:#12161B;--panel2:#171C22;--line:rgba(231,233,234,.10);--strong:rgba(231,233,234,.18);--text:#E7E9EA;--dim:rgba(231,233,234,.64);--dimmer:rgba(231,233,234,.40);--teal:#5EEAD4;--amber:#F2A93B;--violet:#B79CFF;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}.container{max-width:1040px;margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:5;background:rgba(11,14,17,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}nav .container{height:60px;display:flex;align-items:center;justify-content:space-between}.brand{font:13px var(--mono)}.brand span{color:var(--teal)}.back{font:12px var(--mono);color:var(--dim)}.back:hover{color:var(--teal)}
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 82% 12%,rgba(183,156,255,.10),transparent 34%),radial-gradient(ellipse at 12% 55%,rgba(94,234,212,.07),transparent 35%)}
+.kicker{font:11px var(--mono);letter-spacing:.12em;color:var(--teal);text-transform:uppercase}.tags{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.tag{font:10px var(--mono);padding:5px 9px;border:1px solid var(--strong);color:var(--dim)}.tag.alert{border-color:rgba(242,169,59,.5);color:var(--amber)}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.12;letter-spacing:-.035em;max-width:850px;margin:18px 0}.lede{font-size:17px;color:var(--dim);max-width:760px}.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:var(--dimmer);font:11px var(--mono)}
+section{padding:54px 0;border-bottom:1px solid var(--line)}.eyebrow{font:11px var(--mono);color:var(--teal);letter-spacing:.1em;margin-bottom:10px}h2{font-size:26px;letter-spacing:-.02em;margin-bottom:16px}h3{font-size:16px;margin-bottom:9px}.intro{color:var(--dim);max-width:780px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.card{background:var(--panel);border:1px solid var(--line);padding:21px}.card p,.body-copy{font-size:14px;color:var(--dim)}.card .num{font:11px var(--mono);color:var(--teal);margin-bottom:12px}
+.callout{margin-top:24px;background:var(--panel2);border-left:2px solid var(--amber);padding:18px 21px}.callout b{display:block;color:var(--amber);font:10px var(--mono);letter-spacing:.08em;margin-bottom:7px}.callout p{font-size:14px;color:var(--dim)}
+.timeline{margin-top:24px;border-left:1px solid var(--strong);padding-left:24px}.event{position:relative;padding:0 0 23px}.event:before{content:"";position:absolute;left:-29px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(94,234,212,.10)}.event time{font:10px var(--mono);color:var(--amber)}.event p{font-size:14px;color:var(--dim);margin-top:4px}
+.code-card{margin-top:18px;padding:20px;border:1px solid var(--line);background:#0E1216}.code-card .label{font:10px var(--mono);color:var(--violet);margin-bottom:9px}.code-card p{font-size:13.5px;color:var(--dim)}
+.cvss{display:flex;align-items:center;gap:14px;margin:18px 0 4px}.score{font:700 24px var(--mono);color:var(--amber)}.score small{display:block;font:9px var(--mono);color:var(--dimmer);letter-spacing:.08em}.cve{font:11px var(--mono);color:var(--teal)}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.step{counter-increment:step;padding:18px;background:var(--panel);border:1px solid var(--line)}.step:before{content:"0" counter(step);font:11px var(--mono);color:var(--teal);display:block;margin-bottom:10px}.step p{font-size:13.5px;color:var(--dim)}
+.note{font-size:12px;color:var(--dimmer);margin-top:15px}
+.sources{display:grid;gap:10px;margin-top:18px}.sources a{font-size:13px;color:var(--teal);border-bottom:1px solid var(--line);padding:10px 0}.sources a:hover{color:var(--text)}
+footer{padding:48px 0;text-align:center}footer p{color:var(--dim);font-size:13px;margin-bottom:18px}.btn{display:inline-block;padding:11px 18px;border:1px solid var(--teal);color:var(--teal);font:11px var(--mono)}
+@media(max-width:680px){.grid,.steps{grid-template-columns:1fr}.hero{padding-top:52px}.container{padding:0 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="container"><div class="brand">bodepu<span>.</span>mounika</div><a class="back" href="index.html">← Back to portfolio</a></div></nav>
+<header class="hero"><div class="container">
+<div class="kicker">Security research · Technical explainer</div>
+<div class="tags"><span class="tag">BLACK OCTOBER 2026</span><span class="tag">PHP2SHELL</span><span class="tag alert">CRITICAL · CVSS 9.2</span></div>
+<h1>Black October: Inside the PHP2Shell vulnerabilities</h1>
+<p class="lede">A research-led breakdown of the cybersecurity events that made October 2026 stand out — with a deeper look at how two critical flaws in PHP's runtime could turn an ordinary web request into a server-level security incident.</p>
+<div class="hero-meta"><span>RESEARCH &amp; EXPLAINER</span><span>OCTOBER 2026</span><span>FOCUS: PHP RUNTIME SECURITY</span></div>
+</div></header>
+<main>
+<section><div class="container">
+<div class="eyebrow">01 / THE CONTEXT</div><h2>Why “Black October”?</h2>
+<p class="intro">The Digital Security and Cyber Security Institute (DSCI) described October 2026 as “Black October” in its monthly threat report. The label captures a convergence of cyber events rather than one coordinated attack: AI-enabled operations, supply-chain compromises, critical infrastructure vulnerabilities and major data exposures. PHP2Shell was one of the report's highlighted software vulnerabilities. This case study uses that wider context as its opening, then focuses on the PHP issue we researched in greater depth.</p>
+<div class="grid">
+<div class="card"><div class="num">THE BROADER PICTURE</div><h3>Many layers, one busy month</h3><p>Security teams were responding to critical software vulnerabilities, supply-chain concerns, certificate trust issues and AI-enabled cyber activity. Each incident required its own investigation and response.</p></div>
+<div class="card"><div class="num">OUR DEEP DIVE</div><h3>Why PHP stood out</h3><p>PHP is embedded in the server-side stack behind many websites and content-management systems. A flaw in the runtime can affect applications even when their own code has no obvious vulnerability.</p></div>
+</div>
+<div class="callout"><b>IMPORTANT DISTINCTION</b><p>“Black October” is the wider cybersecurity context. PHP2Shell is the specific technical issue explored in depth in this case study.</p></div>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">02 / THE FOUNDATION</div><h2>First, what is PHP?</h2>
+<p class="intro">PHP is a server-side scripting language. When a browser requests a page, a web server can pass the request to PHP, which executes application logic and returns a response — often HTML or data for the browser. PHP is commonly used in websites, content-management systems and web applications.</p>
+<div class="grid">
+<div class="card"><div class="num">01 · REQUEST</div><h3>A user visits a website</h3><p>The browser sends an HTTP request to the web server. The request may contain form fields, cookies, uploaded files or other data.</p></div>
+<div class="card"><div class="num">02 · RUNTIME</div><h3>PHP processes it</h3><p>The PHP runtime interprets and executes the server-side code, manages memory and handles the request lifecycle.</p></div>
+<div class="card"><div class="num">03 · APPLICATION</div><h3>The application responds</h3><p>The application may read or update data, apply business logic and generate a response.</p></div>
+<div class="card"><div class="num">04 · RESPONSE</div><h3>The browser receives output</h3><p>The server sends the response back to the user. The browser does not normally see the internal PHP execution.</p></div>
+</div>
+<p class="note">This simplified flow explains the role of the runtime; real deployments may include PHP-FPM, web-server modules, reverse proxies, containers and other infrastructure.</p>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">03 / THE INCIDENT</div><h2>PHP2Shell: when the runtime itself becomes the attack surface</h2>
+<p class="intro">PHP2Shell refers to two critical vulnerabilities in PHP's core runtime: CVE-2026-109618 and CVE-2026-109619. Under vulnerable conditions, specially crafted HTTP traffic could trigger unsafe memory-handling paths and potentially lead to unauthenticated remote code execution, information disclosure or denial of service.</p>
+<div class="cvss"><div class="score">9.2<small>CVSS v4.0</small></div><div><div class="cve">CVE-2026-109618</div><div class="cve">CVE-2026-109619</div><div class="note">Both rated Critical in the cited advisories</div></div></div>
+<div class="grid">
+<div class="card"><div class="num">CVE-2026-109618</div><h3>Out-of-memory (OOM) corruption</h3><p>PHP uses an error-exit path when memory allocation fails. In certain request-parsing contexts, the interruption can leave request memory incompletely initialized; later cleanup may read or branch on that uninitialized state, creating a path to memory corruption and remote code execution.</p></div>
+<div class="card"><div class="num">CVE-2026-109619</div><h3>Stale global state / use-after-free</h3><p>Some PHP global state can temporarily point into request memory. If that state is not reset correctly, or is repopulated after reset, it can point to memory that has already been freed. A subsequent request may encounter the stale reference, creating a use-after-free condition.</p></div>
+</div>
+<div class="callout"><b>WHY THIS MATTERS</b><p>These are runtime-level flaws, not simply bugs in a particular website's business logic. A website may inherit exposure from the PHP version used by its hosting environment or bundled platform. Updating a theme or unrelated plugin does not fix the PHP interpreter; the affected runtime or vendor-provided package needs the security update.</p></div>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">04 / UNDERSTANDING THE RISK</div><h2>From a malformed request to a serious impact</h2>
+<p class="intro">At a high level, the attack path starts with a request crafted to trigger an exceptional condition in PHP's request-processing or memory-management logic. If the vulnerable path is reached, unsafe memory handling can create an opportunity for an attacker to affect the PHP worker.</p>
+<div class="steps">
+<div class="step"><h3>Reach the runtime</h3><p>An attacker sends a specially crafted HTTP request to a server that processes requests using a vulnerable PHP version.</p></div>
+<div class="step"><h3>Trigger an error path</h3><p>The request causes a condition such as memory exhaustion or a fatal interruption during request processing.</p></div>
+<div class="step"><h3>Unsafe memory handling</h3><p>Incomplete internal state or references to freed memory may be used during cleanup or by a subsequent request.</p></div>
+<div class="step"><h3>Potential security impact</h3><p>Depending on the conditions and exploitability, outcomes can include process crashes, information disclosure or remote code execution.</p></div>
+</div>
+<p class="note">This is a conceptual explanation, not an exploit walkthrough. Successful exploitation depends on runtime, configuration and deployment conditions; impact should not be overstated as automatic full server compromise.</p>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">05 / RESPONSE &amp; REMEDIATION</div><h2>What did the response involve?</h2>
+<div class="timeline">
+<div class="event"><time>21 OCTOBER 2026</time><p>PHP published security updates addressing the two vulnerabilities. The PHP project published the security release after details about the vulnerabilities became public on 20 October, ahead of the coordinated disclosure.</p></div>
+<div class="event"><time>PATCH RELEASES</time><p>Upstream fixes were released in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Operators on older branches were advised to check distribution or hosting-provider security updates and supported upgrade paths.</p></div>
+<div class="event"><time>DEFENCE IN DEPTH</time><p>Cloudflare described deploying Web Application Firewall protections to block known exploit traffic. These protections can reduce exposure but do not replace patching the vulnerable runtime.</p></div>
+<div class="event"><time>VERIFY, NOT JUST INSTALL</time><p>Organisations need to identify every PHP deployment, apply the correct vendor patch, restart affected services where required, verify the running version and review relevant logs for signs of suspicious activity.</p></div>
+</div>
+<div class="callout"><b>PATCHING PRINCIPLE</b><p>Confirm the actual package and vendor advisory for each environment. A vendor may backport a security fix without using the exact upstream version number shown above.</p></div>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">06 / RESEARCH PROCESS</div><h2>How we broke down the issue</h2>
+<p class="intro">The goal was not to reproduce the vulnerability or claim original security research. It was to understand a complex technical disclosure well enough to explain the issue accurately to a non-specialist audience.</p>
+<div class="steps">
+<div class="step"><h3>Start with the fundamentals</h3><p>Understand PHP's role in a web request before trying to explain a runtime-level vulnerability.</p></div>
+<div class="step"><h3>Separate the two CVEs</h3><p>Compare the root cause and failure condition described for each vulnerability instead of treating PHP2Shell as one generic bug.</p></div>
+<div class="step"><h3>Cross-check the claims</h3><p>Compare vendor and researcher write-ups for severity, affected components, impact and patch guidance. Keep uncertain or deployment-specific claims qualified.</p></div>
+<div class="step"><h3>Translate without oversimplifying</h3><p>Use a request-lifecycle explanation and plain-language analogies while preserving the technical distinction between incomplete initialization and stale memory references.</p></div>
+</div>
+<div class="callout"><b>WHERE AI FITTED IN</b><p>AI tools supported research exploration, summarisation, terminology clarification and drafting. They were treated as assistants, not authorities: technical claims still needed to be checked against primary advisories and credible security research. This work was an independent explainer, not vulnerability discovery, exploit development or a penetration test.</p></div>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">07 / TAKEAWAYS</div><h2>What this research reinforced</h2>
+<div class="grid">
+<div class="card"><div class="num">01</div><h3>Security exists below the application layer</h3><p>Secure application code cannot compensate for a vulnerable runtime or infrastructure dependency underneath it.</p></div>
+<div class="card"><div class="num">02</div><h3>Asset visibility is foundational</h3><p>Teams cannot patch what they do not know they run. Inventory across hosts, containers and vendor-managed environments matters.</p></div>
+<div class="card"><div class="num">03</div><h3>Mitigation is not remediation</h3><p>WAF rules and temporary controls can help reduce risk, but they are not substitutes for fixing the underlying software.</p></div>
+<div class="card"><div class="num">04</div><h3>AI increases the pace of security work</h3><p>AI can help researchers analyse code and explore attack paths, but human verification, coordinated disclosure and disciplined patching remain essential.</p></div>
+</div>
+</div></section>
+<section><div class="container">
+<div class="eyebrow">SOURCES &amp; FURTHER READING</div><h2>Research trail</h2>
+<p class="intro">The technical explanation and remediation details were cross-checked against security advisories and vendor research. The wider Black October framing is kept separate from the PHP2Shell technical findings.</p>
+<div class="sources">
+<a href="https://www.php.net/archive/2026.php#2026-10-21-5" target="_blank" rel="noopener">PHP project — official releases and security advisories ↗</a>
+<a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" target="_blank" rel="noopener">PHP security advisory — CVE-2026-109618 (OOM corruption) ↗</a>
+<a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp" target="_blank" rel="noopener">PHP security advisory — CVE-2026-109619 (stale global state) ↗</a>
+<a href="https://digital.nhs.uk/cyber-alerts/2026/cc-4875/cc-4875" target="_blank" rel="noopener">NHS England Digital — vulnerability details, impact and remediation ↗</a>
+<a href="https://www.dsci.in/files/content/advisory/2026/threat-report-october-2026.pdf" target="_blank" rel="noopener">DSCI — October 2026 threat report: Black October context ↗</a>
+</div>
+<p class="note">Prepared as an independent learning and technical-communication case study. Facts and patch guidance reflect the cited sources available at the time of writing; consult the PHP project and your software vendor for current deployment-specific guidance.</p>
+</div></section>
+</main>
+<footer><div class="container"><p>Exploring how complex technology and security issues can be made understandable.</p><a class="btn" href="index.html">← Return to portfolio</a></div></footer>
+<script src="bg.js"></script>
+</body></html>
