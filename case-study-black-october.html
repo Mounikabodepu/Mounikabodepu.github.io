@@ -37,7 +37,7 @@ footer{padding:48px 0;text-align:center}footer p{color:var(--dim);font-size:13px
 <main>
 <section><div class="container">
 <div class="eyebrow">01 / THE CONTEXT</div><h2>Why “Black October”?</h2>
-<p class="intro">Black October was an informal label used to describe a cluster of high-impact cybersecurity disclosures and incidents that surfaced around October 2026. It was not one coordinated attack or a single vulnerability. The month brought attention to weaknesses across widely used software, infrastructure and digital trust systems. PHP2Shell became one of the most prominent stories because the issue sat inside the PHP runtime — a foundational layer used by a large number of web applications.</p>
+<p class="intro">The Digital Security and Cyber Security Institute (DSCI) described October 2026 as “Black October” in its monthly threat report. The label captures a convergence of cyber events rather than one coordinated attack: AI-enabled operations, supply-chain compromises, critical infrastructure vulnerabilities and major data exposures. PHP2Shell was one of the report's highlighted software vulnerabilities. This case study uses that wider context as its opening, then focuses on the PHP issue we researched in greater depth.</p>
 <div class="grid">
 <div class="card"><div class="num">THE BROADER PICTURE</div><h3>Many layers, one busy month</h3><p>Security teams were responding to critical software vulnerabilities, supply-chain concerns, certificate trust issues and AI-enabled cyber activity. Each incident required its own investigation and response.</p></div>
 <div class="card"><div class="num">OUR DEEP DIVE</div><h3>Why PHP stood out</h3><p>PHP is embedded in the server-side stack behind many websites and content-management systems. A flaw in the runtime can affect applications even when their own code has no obvious vulnerability.</p></div>
@@ -60,10 +60,10 @@ footer{padding:48px 0;text-align:center}footer p{color:var(--dim);font-size:13px
 <p class="intro">PHP2Shell refers to two critical vulnerabilities in PHP's core runtime: CVE-2026-109618 and CVE-2026-109619. Under vulnerable conditions, specially crafted HTTP traffic could trigger unsafe memory-handling paths and potentially lead to unauthenticated remote code execution, information disclosure or denial of service.</p>
 <div class="cvss"><div class="score">9.2<small>CVSS v4.0</small></div><div><div class="cve">CVE-2026-109618</div><div class="cve">CVE-2026-109619</div><div class="note">Both rated Critical in the cited advisories</div></div></div>
 <div class="grid">
-<div class="card"><div class="num">CVE-2026-109618</div><h3>Incomplete initialization after memory exhaustion</h3><p>When PHP runs out of memory, request processing can be interrupted before some internal request data is fully initialized. During cleanup, PHP may incorrectly treat that incomplete data as valid.</p></div>
-<div class="card"><div class="num">CVE-2026-109619</div><h3>Stale references to freed memory</h3><p>A fatal error can leave internal state referring to memory that has already been released. A later request handled by the same worker may encounter that stale state before it is reset.</p></div>
+<div class="card"><div class="num">CVE-2026-109618</div><h3>Out-of-memory (OOM) corruption</h3><p>PHP uses an error-exit path when memory allocation fails. In certain request-parsing contexts, the interruption can leave request memory incompletely initialized; later cleanup may read or branch on that uninitialized state, creating a path to memory corruption and remote code execution.</p></div>
+<div class="card"><div class="num">CVE-2026-109619</div><h3>Stale global state / use-after-free</h3><p>Some PHP global state can temporarily point into request memory. If that state is not reset correctly, or is repopulated after reset, it can point to memory that has already been freed. A subsequent request may encounter the stale reference, creating a use-after-free condition.</p></div>
 </div>
-<div class="callout"><b>WHY THIS MATTERS</b><p>The weakness is in PHP's runtime, not necessarily in a particular website's business logic. Updating a CMS theme or application plugin alone does not repair a vulnerable PHP runtime. The runtime or vendor-provided package must be patched.</p></div>
+<div class="callout"><b>WHY THIS MATTERS</b><p>These are runtime-level flaws, not simply bugs in a particular website's business logic. A website may inherit exposure from the PHP version used by its hosting environment or bundled platform. Updating a theme or unrelated plugin does not fix the PHP interpreter; the affected runtime or vendor-provided package needs the security update.</p></div>
 </div></section>
 <section><div class="container">
 <div class="eyebrow">04 / UNDERSTANDING THE RISK</div><h2>From a malformed request to a serious impact</h2>
@@ -79,7 +79,7 @@ footer{padding:48px 0;text-align:center}footer p{color:var(--dim);font-size:13px
 <section><div class="container">
 <div class="eyebrow">05 / RESPONSE &amp; REMEDIATION</div><h2>What did the response involve?</h2>
 <div class="timeline">
-<div class="event"><time>21 OCTOBER 2026</time><p>PHP published security updates addressing the two vulnerabilities. The coordinated disclosure timeline was accelerated after details began circulating ahead of the planned release.</p></div>
+<div class="event"><time>21 OCTOBER 2026</time><p>PHP published security updates addressing the two vulnerabilities. The PHP project published the security release after details about the vulnerabilities became public on 20 October, ahead of the coordinated disclosure.</p></div>
 <div class="event"><time>PATCH RELEASES</time><p>Upstream fixes were released in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Operators on older branches were advised to check distribution or hosting-provider security updates and supported upgrade paths.</p></div>
 <div class="event"><time>DEFENCE IN DEPTH</time><p>Cloudflare described deploying Web Application Firewall protections to block known exploit traffic. These protections can reduce exposure but do not replace patching the vulnerable runtime.</p></div>
 <div class="event"><time>VERIFY, NOT JUST INSTALL</time><p>Organisations need to identify every PHP deployment, apply the correct vendor patch, restart affected services where required, verify the running version and review relevant logs for signs of suspicious activity.</p></div>
@@ -110,11 +110,11 @@ footer{padding:48px 0;text-align:center}footer p{color:var(--dim);font-size:13px
 <div class="eyebrow">SOURCES &amp; FURTHER READING</div><h2>Research trail</h2>
 <p class="intro">The technical explanation and remediation details were cross-checked against security advisories and vendor research. The wider Black October framing is kept separate from the PHP2Shell technical findings.</p>
 <div class="sources">
-<a href="https://www.php.net/" target="_blank" rel="noopener">PHP project — official releases and security advisories ↗</a>
-<a href="https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619" target="_blank" rel="noopener">Google Cloud — response to CVE-2026-109618 and CVE-2026-109619 ↗</a>
-<a href="https://blog.cloudflare.com/php-vulnerabilities-waf-protection/" target="_blank" rel="noopener">Cloudflare — PHP vulnerability protections and WAF response ↗</a>
-<a href="https://securitylabs.datadoghq.com/articles/php2shell-critical-vulnerabilities-in-php/" target="_blank" rel="noopener">Datadog Security Labs — PHP2Shell technical analysis ↗</a>
-<a href="https://www.dsci.in/files/content/advisory/2026/threat-report-october-2026.pdf" target="_blank" rel="noopener">DSCI — October 2026 threat report and Black October context ↗</a>
+<a href="https://www.php.net/archive/2026.php#2026-10-21-5" target="_blank" rel="noopener">PHP project — official releases and security advisories ↗</a>
+<a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" target="_blank" rel="noopener">PHP security advisory — CVE-2026-109618 (OOM corruption) ↗</a>
+<a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp" target="_blank" rel="noopener">PHP security advisory — CVE-2026-109619 (stale global state) ↗</a>
+<a href="https://digital.nhs.uk/cyber-alerts/2026/cc-4875/cc-4875" target="_blank" rel="noopener">NHS England Digital — vulnerability details, impact and remediation ↗</a>
+<a href="https://www.dsci.in/files/content/advisory/2026/threat-report-october-2026.pdf" target="_blank" rel="noopener">DSCI — October 2026 threat report: Black October context ↗</a>
 </div>
 <p class="note">Prepared as an independent learning and technical-communication case study. Facts and patch guidance reflect the cited sources available at the time of writing; consult the PHP project and your software vendor for current deployment-specific guidance.</p>
 </div></section>
