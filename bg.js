@@ -2,7 +2,7 @@
 (function(){
   var canvas=document.createElement('canvas');
   canvas.setAttribute('aria-hidden','true');
-  canvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none';
+  canvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none';
   document.body.prepend(canvas);
 
   var ctx=canvas.getContext('2d'),W=0,H=0,D=1,raf=0,time=0;
