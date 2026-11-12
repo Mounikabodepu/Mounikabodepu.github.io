@@ -186,7 +186,13 @@
   .contact-cell .k{ font-family:var(--mono); font-size:11px; color:var(--text-dimmer); margin-bottom:6px; }
   .contact-cell .v{ font-size:14px; }
   .footer-note{ margin-top:32px; font-family:var(--mono); font-size:11.5px; color:var(--text-dimmer); text-align:center; }
-</style>
+
+  .cashflow-preview{background:radial-gradient(circle at 82% 18%,rgba(94,234,212,.15),transparent 38%),linear-gradient(145deg,#17242a,#10161c)!important;padding:18px}
+  .cashflow-visual{width:100%;max-width:370px;border:1px solid rgba(94,234,212,.24);background:rgba(7,13,17,.78);padding:14px;color:#E7E9EA;font-family:var(--mono);box-shadow:0 18px 45px rgba(0,0,0,.24)}
+  .cf-top,.cf-foot{display:flex;justify-content:space-between;gap:8px;font-size:8px;color:rgba(231,233,234,.48);letter-spacing:.06em}
+  .cf-balance{padding:15px 0 10px}.cf-balance small,.cf-balance span{display:block;font-size:8px;color:rgba(231,233,234,.5)}.cf-balance strong{display:block;font-size:23px;color:var(--signal);letter-spacing:-.04em}.cf-bars{height:58px;display:flex;align-items:end;gap:8px;border-bottom:1px solid var(--line);padding:0 4px 5px}.cf-bars i{display:block;flex:1;background:linear-gradient(180deg,var(--signal),rgba(94,234,212,.15));border-radius:2px 2px 0 0}.cf-foot{padding-top:9px}.cf-foot b{color:var(--flag);font-weight:500}.cf-foot em{font-style:normal;color:#B79CFF}
+  .learning-note{font-family:var(--mono);font-size:11px;color:var(--text-dimmer);margin:20px 0 8px}.exploring.learning span{color:var(--flag);border-color:rgba(242,169,59,.35)}
+\n</style>
 </head>
 <body>
 
@@ -209,7 +215,7 @@
     <div class="hero-greet">Hi, myself</div>
     <h1 class="hero-name">Bodepu Mounika</h1>
     <div class="hero-typing" id="typing"></div>
-    <p class="hero-sub">I manage governance and security compliance across 36 enterprise banking applications as an IT Application Owner — now I'm turning that risk-first instinct into AI products, building GenAI apps with LangChain, OpenAI APIs, and Streamlit along the way.</p>
+    <p class="hero-sub">I manage governance and security compliance across 39 enterprise banking applications as an IT Application Owner — now I'm turning that risk-first instinct into AI products, building GenAI apps with LangChain, OpenAI APIs, and Streamlit along the way.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#work">View work</a>
       <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -236,6 +242,22 @@
     </div>
 
     <div class="work-grid">
+
+      <div class="thumb-card">
+        <a class="thumb-link" href="prd.html?p=cashflow">
+          <div class="thumb-preview cashflow-preview" aria-label="Illustrative CashFlow Intelligence concept preview">
+            <div class="cashflow-visual"><div class="cf-top"><span>CASHFLOW / OVERVIEW</span><span>DEMO CONCEPT</span></div><div class="cf-balance"><small>PROJECTED CASH POSITION</small><strong>₹ 4,82,500</strong><span>Illustrative data · not a live balance</span></div><div class="cf-bars"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:72%"></i><i style="height:60%"></i><i style="height:88%"></i><i style="height:68%"></i></div><div class="cf-foot"><span>RECEIVABLES</span><b>PAYABLES</b><em>PARTIAL PAYMENTS</em></div></div>
+          </div>
+        </a>
+        <div class="thumb-body">
+          <div class="thumb-meta-row"><div class="thumb-meta"><b>01</b> · AI Product · SME Finance</div><span class="thumb-badge wip">Discovery</span></div>
+          <a class="thumb-title" style="display:block;" href="prd.html?p=cashflow">CashFlow Intelligence</a>
+          <p class="thumb-desc">An explainable financial copilot concept for SMEs to track customer credit, irregular repayments, supplier dues and cash-flow risk. Currently validating the problem with business users.</p>
+          <div class="stack-row terms" style="margin:14px 0 0;"><span>Product discovery</span><span>PRD</span><span>SME finance</span><span>AI copilot</span></div>
+          <div class="thumb-links"><a href="prd.html?p=cashflow">PRD &amp; product thinking</a></div>
+        </div>
+      </div>
+
 
       <div class="thumb-card">
         <a class="thumb-link" href="prd.html?p=protein">
@@ -358,7 +380,7 @@
         <div class="exp-dates">Aug 2025 – Present · Bengaluru, India</div>
         <div class="exp-role">IT Application Owner (Senior Management Trainee) <span>@ HCL Technologies</span></div>
         <ul class="exp-bullets">
-          <li>Manage governance and security compliance across 36 enterprise banking applications, partnering with ITAOs, engineering teams, and business stakeholders</li>
+          <li>Manage governance and security compliance across 39 enterprise banking applications, partnering with ITAOs, engineering teams, and business stakeholders</li>
           <li>Coordinate enterprise-wide security assessments — OSS attestations, SSO onboarding, PQC vendor assessments, risk reviews — within SLA timelines</li>
           <li>Lead cross-functional communication between application teams, cybersecurity, infrastructure, and vendors to resolve compliance gaps</li>
           <li>Track control execution, non-compliance remediation, and project milestones through JIRA and ServiceNow</li>
@@ -381,12 +403,12 @@
       <div class="avatar"><img src="mounika-photo.jpg" alt="Bodepu Mounika" /></div>
       <div>
         <div class="about-copy">
-          <p>My day job is enterprise technology governance — security compliance, risk assessments, and application lifecycle management across 36 banking applications, coordinating between ITAOs, engineering teams, cybersecurity, and vendors. That's the same vocabulary AI risk and fraud products run on: flagging anomalies, tracing root cause, proving controls work.</p>
-          <p>I hold an MBA from IFMR Graduate School of Business, and before that a B.Sc. (Hons.) in Horticulture — proof I'm comfortable starting over in an unfamiliar domain and finding the patterns underneath it. I'm currently building end-to-end GenAI applications with LangChain, OpenAI APIs, and Streamlit, working toward AI Product Management, Enterprise AI Transformation, and LLM-powered business solutions.</p>
+          <p>My day job is enterprise technology governance — security compliance, risk assessments, and application lifecycle management across 39 banking applications, coordinating between ITAOs, engineering teams, cybersecurity, and vendors. That's the same vocabulary AI risk and fraud products run on: flagging anomalies, tracing root cause, proving controls work.</p>
+          <p>I hold an MBA from IFMR Graduate School of Business, and before that a B.Sc. (Hons.) in Agriculture — proof I'm comfortable starting over in an unfamiliar domain and finding the patterns underneath it. I'm currently building end-to-end GenAI applications with LangChain, OpenAI APIs, and Streamlit, working toward AI Product Management, Enterprise AI Transformation, and LLM-powered business solutions.</p>
         </div>
         <div class="about-stats">
           <div class="about-stat"><div class="k">EDUCATION</div><div class="v">MBA, IFMR GSB</div></div>
-          <div class="about-stat"><div class="k">APPLICATIONS OWNED</div><div class="v">36</div></div>
+          <div class="about-stat"><div class="k">APPLICATIONS OWNED</div><div class="v">39</div></div>
           <div class="about-stat"><div class="k">FOCUS</div><div class="v">AI × Finance PM</div></div>
         </div>
         <div class="exploring">
@@ -420,7 +442,7 @@
 <script>
   // Typing effect
   const phrases = [
-    "Governing 36 enterprise banking applications.",
+    "Governing 39 enterprise banking applications.",
     "Building GenAI apps with LangChain & Streamlit.",
     "Transitioning into AI Product Management."
   ];
