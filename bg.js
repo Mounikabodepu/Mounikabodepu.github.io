@@ -1,37 +1,38 @@
-/* Subtle product-management themed background: roadmap grid, drifting cards, dependency lines */
+/* Calm, abstract product-thinking canvas: connected ideas, roadmap nodes and data signals. */
 (function(){
-  var c=document.createElement('canvas');c.setAttribute('aria-hidden','true');
-  c.style.cssText='position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none';
+  var c=document.createElement('canvas');
+  c.setAttribute('aria-hidden','true');
+  c.style.cssText='position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.82';
   document.body.prepend(c);
-  var x=c.getContext('2d'),W,H,cards=[],tags=['PRD','MVP','KPI','P0','P1','OKR','A/B','Q4'];
-  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function size(){
-    var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;
-    c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
-    var n=Math.round(Math.min(18,Math.max(7,W*H/70000)));cards=[];
-    for(var i=0;i<n;i++)cards.push({x:Math.random()*W,y:Math.random()*H,w:70+Math.random()*30,v:.08+Math.random()*.16,t:tags[i%tags.length],a:i%5==0});
+  var x=c.getContext('2d'),W=0,H=0,dpr=1,nodes=[];
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var palette=['101,88,211','231,151,119','92,166,174','166,151,218'];
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);W=window.innerWidth;H=window.innerHeight;
+    c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    var count=Math.max(12,Math.min(28,Math.round(W*H/42000)));
+    nodes=[];
+    for(var i=0;i<count;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,r:2+Math.random()*3,dx:(Math.random()-.5)*.12,dy:(Math.random()-.5)*.12,col:palette[i%palette.length],phase:Math.random()*6.28});
   }
-  function rr(px,py,w,h,r){x.beginPath();x.moveTo(px+r,py);x.arcTo(px+w,py,px+w,py+h,r);x.arcTo(px+w,py+h,px,py+h,r);x.arcTo(px,py+h,px,py,r);x.arcTo(px,py,px+w,py,r);x.closePath()}
   function draw(){
     x.clearRect(0,0,W,H);
-    x.strokeStyle='rgba(231,233,234,.035)';x.lineWidth=1;
-    for(var gx=0;gx<W;gx+=88){x.beginPath();x.moveTo(gx,0);x.lineTo(gx,H);x.stroke()}
-    for(var gy=0;gy<H;gy+=88){x.beginPath();x.moveTo(0,gy);x.lineTo(W,gy);x.stroke()}
-    for(var i=0;i<cards.length;i++)for(var j=i+1;j<cards.length;j++){
-      var a=cards[i],b=cards[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<260){x.strokeStyle='rgba(94,234,212,'+(.09*(1-dist/260))+')';x.beginPath();x.moveTo(a.x+a.w/2,a.y+20);x.lineTo(b.x+b.w/2,b.y+20);x.stroke()}
+    // Fine dotted field — intentionally low contrast.
+    x.fillStyle='rgba(72,75,112,.10)';
+    for(var gx=24;gx<W;gx+=42)for(var gy=24;gy<H;gy+=42){x.beginPath();x.arc(gx,gy,.7,0,Math.PI*2);x.fill()}
+    // Connect nearby ideas with thin, quiet lines.
+    for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){
+      var a=nodes[i],b=nodes[j],dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<190){x.strokeStyle='rgba(101,88,211,'+(.055*(1-dist/190))+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}
     }
-    x.globalAlpha=.5;
-    cards.forEach(function(k){
-      var col=k.a?'242,169,59':'94,234,212';
-      x.fillStyle='rgba(18,22,27,.55)';x.strokeStyle='rgba('+col+',.2)';rr(k.x,k.y,k.w,40,6);x.fill();x.stroke();
-      x.fillStyle='rgba('+col+',.38)';x.font='9px ui-monospace,monospace';x.fillText(k.t,k.x+8,k.y+15);
-      x.fillStyle='rgba(231,233,234,.1)';x.fillRect(k.x+8,k.y+23,k.w-16,3);x.fillRect(k.x+8,k.y+30,(k.w-16)*.6,3);
-      if(!still){k.y-=k.v;k.x+=Math.sin(k.y/90)*.12;if(k.y<-50){k.y=H+10;k.x=Math.random()*W}}
+    nodes.forEach(function(p){
+      var glow=x.createRadialGradient(p.x,p.y,0,p.x,p.y,25);
+      glow.addColorStop(0,'rgba('+p.col+',.13)');glow.addColorStop(1,'rgba('+p.col+',0)');
+      x.fillStyle=glow;x.beginPath();x.arc(p.x,p.y,25,0,Math.PI*2);x.fill();
+      x.fillStyle='rgba('+p.col+',.38)';x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
+      if(!reduced){p.x+=p.dx;p.y+=p.dy;if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10}
     });
-    x.globalAlpha=1;
-    if(!still)requestAnimationFrame(draw);
+    if(!reduced)requestAnimationFrame(draw);
   }
-  size();draw();
-  addEventListener('resize',function(){size();if(still)draw()});
+  resize();draw();
+  window.addEventListener('resize',function(){resize();if(reduced)draw()},{passive:true});
 })();
