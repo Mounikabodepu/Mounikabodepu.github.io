@@ -57,7 +57,20 @@
   @media (max-width:640px){ .nav-links{ display:none; } }
 
   /* ---------- HERO ---------- */
-  header.hero{ padding:110px 0 80px; }
+  header.hero{ padding:104px 0 84px; position:relative; overflow:hidden; }
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 76% 42%,rgba(94,234,212,.075),transparent 43%),radial-gradient(ellipse at 12% 8%,rgba(183,156,255,.055),transparent 34%);}
+  .hero-layout{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:42px;align-items:center}
+  .hero-copy{min-width:0}
+  .hero-aside{border:1px solid var(--line);background:linear-gradient(155deg,rgba(23,28,34,.88),rgba(18,22,27,.68));padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.16)}
+  .aside-kicker{font:10px var(--mono);letter-spacing:.12em;color:var(--text-dimmer);margin-bottom:18px}
+  .lens-step{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
+  .lens-step:first-of-type{border-top:0}
+  .lens-num{font:10px var(--mono);color:var(--signal);padding-top:2px}
+  .lens-step strong{display:block;font-size:12px;font-weight:600;color:var(--text)}
+  .lens-step small{display:block;font-size:10.5px;color:var(--text-dimmer);margin-top:3px;line-height:1.45}
+  .lens-foot{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font:9px var(--mono);letter-spacing:.06em;color:var(--text-dimmer)}
+  @media(max-width:720px){.hero-layout{grid-template-columns:1fr;gap:30px}.hero-aside{max-width:420px}.hero-copy{max-width:620px}}
+  @media(max-width:640px){header.hero{padding:76px 0 64px}}
   .status-pill{
     display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12px;
     color:var(--text-dim); border:1px solid var(--line-strong); padding:6px 12px; border-radius:20px; margin-bottom:36px;
@@ -211,21 +224,30 @@
 </nav>
 
 <header class="hero">
-  <div class="container">
-    <div class="status-pill"><span class="dot"></span>Available for AI Product roles · Bengaluru, India</div>
-    <div class="hero-greet">Hi, myself</div>
-    <h1 class="hero-name">Bodepu Mounika</h1>
-    <div class="hero-typing" id="typing"></div>
-    <p class="hero-sub">I manage governance and security compliance across 39 enterprise banking applications as an IT Application Owner — now I'm turning that risk-first instinct into AI products, building GenAI apps with LangChain, OpenAI APIs, and Streamlit along the way.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#work">View work</a>
-      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <div class="status-pill"><span class="dot"></span>AI Product · Financial Services · Applied AI</div>
+      <div class="hero-greet">Hello, I'm</div>
+      <h1 class="hero-name">Bodepu Mounika</h1>
+      <div class="hero-typing" id="typing"></div>
+      <p class="hero-sub">I work across governance and security for 39 enterprise banking applications at HCLTech. Alongside that, I build GenAI products and explore how thoughtful product decisions can turn complex business workflows into useful, responsible AI experiences.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#work">Explore my work</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/Mounikabodepu" target="_blank" rel="noopener">github.com/Mounikabodepu</a>
+        <a href="https://www.linkedin.com/in/mounika-bodepu" target="_blank" rel="noopener">linkedin.com/in/mounika-bodepu</a>
+        <a href="mailto:bmounika2108@gmail.com">bmounika2108@gmail.com</a>
+      </div>
     </div>
-    <div class="hero-links">
-      <a href="https://github.com/Mounikabodepu" target="_blank" rel="noopener">github.com/Mounikabodepu</a>
-      <a href="https://www.linkedin.com/in/mounika-bodepu" target="_blank" rel="noopener">linkedin.com/in/mounika-bodepu</a>
-      <a href="mailto:bmounika2108@gmail.com">bmounika2108@gmail.com</a>
-    </div>
+    <aside class="hero-aside" aria-label="My product approach">
+      <div class="aside-kicker">MY PRODUCT LENS</div>
+      <div class="lens-step"><span class="lens-num">01</span><div><strong>Understand the problem</strong><small>Users, workflows and the real friction</small></div></div>
+      <div class="lens-step"><span class="lens-num">02</span><div><strong>Design the system</strong><small>Data, AI, risk and human decisions</small></div></div>
+      <div class="lens-step"><span class="lens-num">03</span><div><strong>Measure the outcome</strong><small>Trust, usefulness and business impact</small></div></div>
+      <div class="lens-foot">BUSINESS × TECHNOLOGY × AI</div>
+    </aside>
   </div>
 </header>
 
@@ -443,9 +465,9 @@
 <script>
   // Typing effect
   const phrases = [
-    "Governing 39 enterprise banking applications.",
-    "Building GenAI apps with LangChain & Streamlit.",
-    "Transitioning into AI Product Management."
+    "Turning business workflows into product opportunities.",
+    "Bringing a risk-first lens to financial technology.",
+    "Building and learning through applied GenAI."
   ];
   const el = document.getElementById('typing');
   let pIndex = 0, cIndex = 0, deleting = false;
