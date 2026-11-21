@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects — Bodepu Mounika</title>
+<meta name="description" content="AI product builds, finance and analytics projects by Bodepu Mounika.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B12;--panel:#0D1420;--panel2:#111C2B;--line:rgba(151,180,211,.14);--line2:rgba(151,180,211,.27);--text:#EAF2FC;--dim:rgba(218,231,246,.68);--muted:rgba(190,207,228,.44);--signal:#69F0D1;--electric:#70A7FF;--flag:#A78BFA;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:radial-gradient(ellipse at 82% 0%,rgba(72,117,206,.14),transparent 34rem),radial-gradient(ellipse at 5% 30%,rgba(46,205,180,.07),transparent 28rem),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6}a{color:inherit;text-decoration:none}.container{max-width:1080px;margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:5;background:rgba(7,11,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}nav .container{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font:600 13px var(--mono);letter-spacing:.04em}.brand span{color:var(--signal)}.back{font:11px var(--mono);color:var(--dim)}.back:hover{color:var(--signal)}
+header{padding:86px 0 48px}.eyebrow{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:15px}h1{font-size:clamp(34px,6vw,54px);line-height:1.12;letter-spacing:-.045em;max-width:750px}header p{color:var(--dim);max-width:650px;margin-top:18px;font-size:15px}.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px}.stat strong{display:block;color:var(--signal);font:600 20px var(--mono)}.stat span{font:9px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 30px}.filter{border:1px solid var(--line2);padding:8px 12px;background:transparent;color:var(--dim);font:10px var(--mono);cursor:pointer}.filter.active,.filter:hover{border-color:var(--signal);color:var(--signal);background:rgba(105,240,209,.06)}
+.group-title{display:flex;align-items:center;gap:14px;margin:38px 0 17px}.group-title h2{font-size:16px;letter-spacing:-.02em}.group-title span{font:9px var(--mono);color:var(--muted);letter-spacing:.1em}.group-title:after{content:"";height:1px;background:var(--line);flex:1}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);background:linear-gradient(150deg,rgba(17,28,43,.88),rgba(10,16,26,.92));padding:22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-3px);border-color:rgba(105,240,209,.45)}.card:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:2px;background:linear-gradient(90deg,var(--signal),var(--electric),transparent);opacity:.7}.meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:22px}.number,.type{font:9px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}.pill{font:9px var(--mono);color:var(--signal);border:1px solid rgba(105,240,209,.35);padding:3px 7px}.pill.wip{color:#E5C2FF;border-color:rgba(167,139,250,.45)}.pill.academic{color:var(--electric);border-color:rgba(112,167,255,.4)}h3{font-size:18px;line-height:1.3;letter-spacing:-.025em;margin-bottom:10px}.desc{font-size:12.5px;line-height:1.65;color:var(--dim);flex:1}.focus{margin-top:17px;padding-top:14px;border-top:1px solid var(--line)}.focus b{display:block;font:9px var(--mono);letter-spacing:.1em;color:var(--muted);margin-bottom:8px}.tags{display:flex;flex-wrap:wrap;gap:6px}.tags span{font:9px var(--mono);color:#A8C9D4;border:1px solid var(--line);padding:4px 7px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}.actions a{font:10px var(--mono);color:var(--signal);border-bottom:1px solid rgba(105,240,209,.3);padding-bottom:2px}.actions .muted{color:var(--muted);border-bottom:0}
+.note{border:1px solid var(--line);background:rgba(13,20,32,.55);padding:18px 20px;margin:34px 0 70px;color:var(--dim);font-size:12px}.note strong{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--muted);font:10px var(--mono);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.container{padding:0 19px}header{padding:64px 0 35px}.grid{grid-template-columns:1fr}.stats{gap:18px}.card{padding:20px}}
+</style>
+</head>
+<body>
+<nav><div class="container"><a class="brand" href="index.html">MOUNIKA<span>.</span></a><a class="back" href="index.html">← BACK TO PORTFOLIO</a></div></nav>
+<main class="container">
+<header>
+<div class="eyebrow">Project archive / selected work</div>
+<h1>Ideas explored.<br><span style="color:var(--signal)">Problems worked through.</span></h1>
+<p>A collection of hands-on AI product builds and academic projects from my MBA in Finance. The work spans credit risk, investment analysis, financial decision-making and practical AI applications.</p>
+<div class="stats"><div class="stat"><strong>06</strong><span>Projects listed</span></div><div class="stat"><strong>03</strong><span>AI product builds</span></div><div class="stat"><strong>03</strong><span>MBA projects</span></div></div>
+</header>
+<div class="filters" role="group" aria-label="Filter projects">
+<button class="filter active" data-filter="all">ALL WORK</button><button class="filter" data-filter="ai">AI &amp; TECHNOLOGY</button><button class="filter" data-filter="finance">FINANCE &amp; ANALYTICS</button><button class="filter" data-filter="academic">MBA PROJECTS</button>
+</div>
+<section class="group" data-group="ai">
+<div class="group-title"><h2>AI products &amp; technology</h2><span>01 — 03</span></div>
+<div class="grid">
+<article class="card" data-category="ai"><div class="meta"><span class="number">01 / PRODUCT BUILD</span><span class="pill">LIVE</span></div><h3>CreditLens AI</h3><p class="desc">An explainable credit-risk intelligence app combining a Random Forest model, borrower-level SHAP explanations and a Gemini-powered analyst copilot. Supports sample-data exploration and CSV-based assessment, with the final decision kept with the human analyst.</p><div class="focus"><b>CORE AREAS</b><div class="tags"><span>Credit risk ML</span><span>SHAP</span><span>Gemini API</span><span>Explainable AI</span></div></div><div class="actions"><a href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">LIVE APP ↗</a><a href="https://github.com/Mounikabodepu/CreditLens-AI" target="_blank" rel="noopener">GITHUB ↗</a><a href="prd.html?p=creditlens">PRD ↗</a></div></article>
+<article class="card" data-category="ai"><div class="meta"><span class="number">02 / PRODUCT BUILD</span><span class="pill">LIVE</span></div><h3>Protein Budget Advisor</h3><p class="desc">A deployed AI-powered nutrition app that helps users explore protein-rich meals within a budget, with recipe suggestions and simple daily nutrition tracking.</p><div class="focus"><b>CORE AREAS</b><div class="tags"><span>Gemini API</span><span>Streamlit</span><span>Supabase</span><span>Product iteration</span></div></div><div class="actions"><a href="https://protein-budget-advisor-avagkzebunybappqv4eutfc.streamlit.app/" target="_blank" rel="noopener">LIVE APP ↗</a><a href="https://github.com/Mounikabodepu/protein-budget-advisor" target="_blank" rel="noopener">GITHUB ↗</a><a href="case-study-protein-advisor.html">CASE STUDY ↗</a></div></article>
+<article class="card" data-category="ai"><div class="meta"><span class="number">03 / PRODUCT CONCEPT</span><span class="pill wip">IN PROGRESS</span></div><h3>CashFlow Intelligence</h3><p class="desc">An AI finance copilot concept for Indian SMEs, designed to turn invoices, bills and financial documents into cash-flow insights, early risk warnings and recommended actions. Product scope and PRD are defined; development is in progress.</p><div class="focus"><b>CORE AREAS</b><div class="tags"><span>SME finance</span><span>Cash-flow intelligence</span><span>AI copilot</span><span>Product discovery</span></div></div><div class="actions"><a href="prd.html?p=cashflow">PRD · ARCHITECTURE ↗</a></div></article>
+</div></section>
+<section class="group" data-group="academic">
+<div class="group-title"><h2>MBA projects / finance &amp; analytics</h2><span>04 — 06</span></div>
+<div class="grid">
+<article class="card" data-category="academic finance"><div class="meta"><span class="number">04 / MBA FINANCE</span><span class="pill academic">ACADEMIC</span></div><h3>Credit Risk Modelling</h3><p class="desc">An academic project focused on assessing borrower credit risk using financial and borrower information. Explored how data-driven risk indicators can support more structured lending analysis.</p><div class="focus"><b>PROJECT LENS</b><div class="tags"><span>Credit risk</span><span>Risk analysis</span><span>Financial decision-making</span></div></div><div class="actions"><span class="muted">Academic project · No public demo</span></div></article>
+<article class="card" data-category="academic finance"><div class="meta"><span class="number">05 / MBA FINANCE</span><span class="pill academic">ACADEMIC</span></div><h3>Portfolio Optimisation</h3><p class="desc">A finance project exploring how investment portfolios can be structured by evaluating the relationship between risk and return and comparing allocation choices.</p><div class="focus"><b>PROJECT LENS</b><div class="tags"><span>Portfolio analysis</span><span>Risk &amp; return</span><span>Asset allocation</span></div></div><div class="actions"><span class="muted">Academic project · No public demo</span></div></article>
+<article class="card" data-category="academic finance"><div class="meta"><span class="number">06 / MBA FINANCE</span><span class="pill academic">ACADEMIC</span></div><h3>Financial Analysis</h3><p class="desc">A financial analysis project focused on interpreting company financial information, understanding performance, and using financial indicators to support business evaluation.</p><div class="focus"><b>PROJECT LENS</b><div class="tags"><span>Financial statements</span><span>Ratio analysis</span><span>Business performance</span></div></div><div class="actions"><span class="muted">Academic project · No public demo</span></div></article>
+</div></section>
+<div class="note"><strong>About the academic work:</strong> These MBA projects are presented as academic work, not deployed products. Public reports, datasets and repository links can be added later if you decide to publish them.</div>
+<footer><span>© 2026 Bodepu Mounika</span><a href="index.html">RETURN TO HOMEPAGE ↑</a></footer>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('.filter')],cards=[...document.querySelectorAll('.card')],groups=[...document.querySelectorAll('.group')];
+buttons.forEach(button=>button.addEventListener('click',()=>{
+  const filter=button.dataset.filter;
+  buttons.forEach(item=>item.classList.toggle('active',item===button));
+  cards.forEach(card=>{const cats=card.dataset.category.split(' ');card.hidden=filter!=='all'&&!cats.includes(filter)});
+  groups.forEach(group=>{group.hidden=!group.querySelector('.card:not([hidden])')});
+}));
+</script>
+</body>
+</html>
