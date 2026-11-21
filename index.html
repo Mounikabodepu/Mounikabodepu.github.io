@@ -530,6 +530,42 @@
   .hcl-workstreams-note{margin-top:10px;color:var(--text-dimmer);font:9px/1.5 var(--mono)}
   @media(max-width:680px){.hcl-domain-grid{grid-template-columns:1fr}.hcl-domain-wide{grid-column:auto}.hcl-workstreams-head{align-items:flex-start;flex-direction:column;gap:4px}}
 
+
+  /* ---------- CONTACT / GET IN TOUCH EXPERIENCE ---------- */
+  footer.contact-footer{padding:82px 0 48px;border-top:1px solid var(--line)}
+  .contact-shell{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:48px;padding:clamp(26px,5vw,54px);border:1px solid rgba(105,240,209,.24);background:linear-gradient(135deg,rgba(12,24,38,.97),rgba(8,15,27,.98) 60%,rgba(15,22,42,.97));box-shadow:0 24px 70px rgba(0,0,0,.22)}
+  .contact-glow{position:absolute;z-index:-1;width:420px;height:420px;right:-100px;top:-210px;border-radius:50%;background:radial-gradient(circle,rgba(105,240,209,.13),rgba(112,167,255,.06) 42%,transparent 70%);pointer-events:none}
+  .contact-main,.contact-side{position:relative;z-index:1}
+  .contact-eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:30px;color:#A9D7D7;font:9px var(--mono);letter-spacing:.13em}
+  .contact-pulse{display:inline-block;width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal)}
+  .contact-headline{margin-top:14px;font:700 clamp(36px,5.5vw,62px)/1.04 var(--sans);letter-spacing:-.055em}
+  .contact-headline span{color:var(--signal);text-shadow:0 0 28px rgba(105,240,209,.12)}
+  .contact-intro{max-width:48ch;margin-top:20px;color:var(--text-dim);font-size:14px;line-height:1.8}
+  .contact-primary{display:inline-flex;align-items:center;gap:28px;margin-top:28px;padding:14px 18px;background:linear-gradient(110deg,var(--signal),#9BEBDD);color:#07121A;font:700 11px var(--mono);letter-spacing:.04em;box-shadow:0 8px 26px rgba(105,240,209,.12);transition:transform .2s,box-shadow .2s}
+  .contact-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(105,240,209,.2)}
+  .contact-primary span{font-size:16px}
+  .contact-socials{display:flex;gap:22px;margin-top:30px}
+  .contact-socials a{color:var(--text-dimmer);font:10px var(--mono);border-bottom:1px solid var(--line-strong);padding-bottom:5px}
+  .contact-socials a:hover{color:var(--signal);border-color:var(--signal)}
+  .contact-side{align-self:center;padding:20px;border:1px solid rgba(151,180,211,.16);background:rgba(4,10,19,.34);backdrop-filter:blur(8px)}
+  .contact-side-label{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;color:var(--text-dimmer);font:9px var(--mono);letter-spacing:.1em}
+  .contact-detail{display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid rgba(151,180,211,.12);transition:padding .2s}
+  a.contact-detail:hover{padding-left:5px}
+  .contact-detail-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border:1px solid rgba(105,240,209,.2);background:rgba(105,240,209,.055);color:var(--signal);font:16px var(--mono)}
+  .contact-detail-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .contact-detail-copy small{color:var(--text-dimmer);font:8px var(--mono);letter-spacing:.12em}
+  .contact-detail-copy strong{color:var(--text);font:500 11px var(--mono);overflow-wrap:anywhere}
+  .contact-detail-arrow{margin-left:auto;color:var(--signal);font-size:15px}
+  .contact-detail-static{cursor:default}
+  .contact-availability{display:flex;align-items:center;gap:10px;margin-top:12px;padding:13px 11px;background:rgba(105,240,209,.055);border:1px solid rgba(105,240,209,.14)}
+  .contact-availability>span:last-child{display:flex;flex-direction:column;gap:3px}
+  .contact-availability b{font:600 10px var(--mono);color:#B9E8DF}
+  .contact-availability small{font:9px var(--mono);color:var(--text-dimmer)}
+  .contact-shell-foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:17px;border-top:1px solid rgba(151,180,211,.15);color:var(--text-dimmer);font:8px var(--mono);letter-spacing:.1em}
+  .footer-note{display:none}
+  @media(max-width:760px){.contact-shell{grid-template-columns:1fr;gap:34px}.contact-side{max-width:none}.contact-shell-foot{grid-column:auto}}
+  @media(max-width:480px){footer.contact-footer{padding:58px 0 30px}.contact-shell{padding:23px 18px}.contact-side{padding:14px}.contact-headline{font-size:42px}}
+
 </style>
 </head>
 <body>
@@ -811,23 +847,36 @@
   </div>
 </section>
 
-<footer id="contact">
+<footer id="contact" class="contact-footer">
   <div class="container">
-    <div class="eyebrow">Contact</div>
-    <h2 class="section-title">Let's build something.</h2>
-    <p class="section-sub">Open to AI Product Management roles at the intersection of AI and finance. The fastest way to reach me is email.</p>
-    <a class="contact-email" href="mailto:bmounika2108@gmail.com">bmounika2108@gmail.com</a>
-    <div class="contact-links">
-      <a href="https://github.com/Mounikabodepu" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/mounika-bodepu" target="_blank" rel="noopener">LinkedIn</a>
-      <!-- Resume link: add back once the corrected PDF is uploaded -->
+    <div class="contact-shell">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-main">
+        <div class="contact-eyebrow"><span class="contact-pulse"></span> OPEN TO PRODUCT CONVERSATIONS</div>
+        <div class="eyebrow">GET IN TOUCH / 06</div>
+        <h2 class="contact-headline">Have a problem<br><span>worth solving?</span></h2>
+        <p class="contact-intro">I’m interested in conversations around AI products, fintech, product thinking and opportunities to build useful things. If something here sparked an idea, let’s talk.</p>
+        <a class="contact-primary" href="mailto:bmounika2108@gmail.com?subject=Let's%20connect">Start a conversation <span>↗</span></a>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/mounika-bodepu" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://github.com/Mounikabodepu" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+        </div>
+      </div>
+      <div class="contact-side">
+        <div class="contact-side-label">DIRECT CHANNELS <span>01 — 03</span></div>
+        <a class="contact-detail" href="mailto:bmounika2108@gmail.com">
+          <span class="contact-detail-icon">＠</span><span class="contact-detail-copy"><small>EMAIL</small><strong>bmounika2108@gmail.com</strong></span><span class="contact-detail-arrow">↗</span>
+        </a>
+        <a class="contact-detail" href="tel:+918555966715">
+          <span class="contact-detail-icon">⌁</span><span class="contact-detail-copy"><small>PHONE</small><strong>+91 85559 66715</strong></span><span class="contact-detail-arrow">↗</span>
+        </a>
+        <div class="contact-detail contact-detail-static">
+          <span class="contact-detail-icon">⌖</span><span class="contact-detail-copy"><small>BASED IN</small><strong>Bengaluru, India</strong></span><span class="contact-detail-arrow">✳</span>
+        </div>
+        <div class="contact-availability"><span class="contact-pulse"></span><span><b>Currently exploring</b><small>AI Product · Fintech · Product Strategy</small></span></div>
+      </div>
+      <div class="contact-shell-foot"><span>LET’S TURN IDEAS INTO SOMETHING USEFUL.</span><span>© 2026 BODEPU MOUNIKA</span></div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-cell"><div class="k">STATUS</div><div class="v">Available for work</div></div>
-      <div class="contact-cell"><div class="k">LOCATION</div><div class="v">Bengaluru, India</div></div>
-      <div class="contact-cell"><div class="k">PHONE</div><div class="v">+91 85559 66715</div></div>
-    </div>
-    <div class="footer-note">© 2026 Bodepu Mounika.</div>
   </div>
 </footer>
 
