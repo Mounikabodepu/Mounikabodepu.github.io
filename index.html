@@ -721,6 +721,148 @@
   }
   @media(prefers-reduced-motion:reduce){.mobile-nav-toggle span{transition:none}}
 
+
+  /* ---------- MOBILE-ONLY PORTFOLIO EXPERIENCE ---------- */
+  /* Desktop styling above remains the source of truth for larger screens. */
+  .hero-sub-mobile{display:none}
+  @media(max-width:640px){
+    html{scroll-padding-top:76px}
+    body{font-size:14px}
+    .container{padding-left:20px;padding-right:20px}
+    nav .container{height:62px}
+    .nav-name{font-size:12px}
+    .mobile-nav-toggle{width:40px;height:40px}
+    nav .nav-links{padding:7px 20px 12px}
+    nav .nav-links a{min-height:44px;display:flex;align-items:center;font-size:10px}
+
+    /* A tighter, more direct first screen */
+    header.hero{min-height:0;padding:56px 0 42px;display:block}
+    .hero-layout{display:flex;flex-direction:column;align-items:stretch;gap:22px}
+    .hero-copy{max-width:none}
+    .status-pill{font-size:8px;letter-spacing:.045em;padding:6px 9px;margin-bottom:24px;gap:7px}
+    .status-pill .dot{width:5px;height:5px}
+    .hero-greet{font-size:11px;margin-bottom:5px}
+    h1.hero-name{font-size:clamp(36px,10vw,46px);line-height:1.08;letter-spacing:-.045em}
+    .hero-typing{font-size:11px;line-height:1.55;min-height:38px;margin-top:12px}
+    .hero-sub-desktop{display:none}
+    .hero-sub-mobile{display:block;margin-top:14px;font-size:13px;line-height:1.75;max-width:39ch}
+    .hero-sub-mobile strong{color:var(--text);font-weight:600}
+    .hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
+    .hero-cta .btn{display:flex;justify-content:center;align-items:center;min-height:46px;padding:10px 8px;font-size:10px;text-align:center}
+    .hero-links{gap:10px 16px;margin-top:20px;font-size:10px}
+    .hero-links a{overflow-wrap:anywhere}
+    .hero-aside{max-width:none;padding:15px 16px}
+    .aside-kicker{font-size:8px;margin-bottom:10px}
+    .lens-step{grid-template-columns:20px 1fr;padding:8px 0;gap:8px}
+    .lens-step strong{font-size:11px}
+    .lens-step small{font-size:9px}
+    .lens-foot{font-size:8px;margin-top:9px;padding-top:9px}
+
+    /* Less vertical scrolling; cards become thumb-friendly */
+    .marquee-wrap{padding:14px 0}
+    .marquee-label{font-size:9px;margin-bottom:10px}
+    .marquee-track{gap:23px}
+    .marquee-track span{font-size:11px}
+    section{padding:55px 0}
+    .section-head{margin-bottom:25px}
+    .eyebrow{font-size:9px;letter-spacing:.1em}
+    h2.section-title{font-size:25px;line-height:1.18}
+    .section-sub{font-size:12px;line-height:1.65;margin-top:9px}
+    #skills .skills-legend{margin-bottom:12px}
+    #skills .skills-legend span{font-size:8px;line-height:1.6}
+    #skills .skills-panel{gap:10px}
+    #skills .skill-group{padding:17px}
+    #skills .skill-group h3{font-size:15px}
+    #skills .skill-intro{font-size:11px}
+    #skills .skill-chip{font-size:10px;padding:7px 8px}
+
+    #work .work-grid{grid-template-columns:1fr;gap:13px}
+    #work .thumb-card{border-radius:3px;overflow:hidden}
+    #work .thumb-preview{aspect-ratio:16/9;min-height:0}
+    #work .creditlens-preview,#work .cashflow-preview{padding:12px}
+    #work .creditlens-visual,#work .cashflow-visual{padding:10px}
+    #work .cl-flow{padding:17px 0;gap:3px}
+    #work .cl-flow div{padding:7px 3px}
+    #work .cl-flow b{font-size:7px}
+    #work .cl-flow strong{font-size:8px}
+    #work .cl-flow small{font-size:6px}
+    #work .cl-top,#work .cl-foot,#work .cf-top,#work .cf-foot{font-size:7px}
+    #work .thumb-body{padding:16px}
+    #work .thumb-meta{font-size:8px}
+    #work .thumb-badge{font-size:8px}
+    #work .thumb-title{font-size:17px;margin-bottom:6px}
+    #work .thumb-desc{font-size:11px;line-height:1.6}
+    #work .stack-row{gap:6px}
+    #work .stack-row span{font-size:8px;padding:4px 6px}
+    #work .thumb-links{gap:13px;flex-wrap:wrap;font-size:10px;margin-top:13px}
+    #work .tool-count{margin-top:10px}
+    #work .tool-count strong{font-size:16px}
+    #work .tool-count span{font-size:8px}
+    #case-studies .cs-grid{grid-template-columns:1fr;gap:10px}
+    #case-studies .cs-card{min-height:0;padding:17px;gap:7px}
+    #case-studies .thumb-title{font-size:15px}
+    #case-studies .thumb-desc{font-size:11px}
+    #case-studies .cs-go{font-size:10px}
+
+    /* Experience reads as a compact story, not a dense CV */
+    #experience .exp-row{grid-template-columns:1fr;gap:8px;padding:17px 0}
+    #experience .exp-num{font-size:9px}
+    #experience .hcl-card,#experience .paterson-card{padding:16px}
+    #experience .hcl-topline{font-size:8px;letter-spacing:.06em}
+    #experience .exp-dates{font-size:9px}
+    #experience .exp-role{font-size:15px;line-height:1.4;margin:6px 0 9px}
+    #experience .exp-role span{display:block;font-size:11px;margin-top:2px}
+    #experience .hcl-summary{font-size:11px;line-height:1.65}
+    #experience .exp-bullets li{font-size:10.5px;line-height:1.6;padding-top:3px;padding-bottom:3px}
+    #experience .hcl-tags,#experience .paterson-tags{gap:5px}
+    #experience .hcl-tags span,#experience .paterson-tags span{font-size:8px;padding:4px 6px}
+    #experience .hcl-workstreams{display:none}
+    #experience .hcl-visual{width:100%;max-width:190px;margin:12px auto 0;min-height:160px}
+    #experience .hcl-foot,#experience .paterson-foot{font-size:7px}
+    #experience .paterson-orbit{margin-top:12px}
+
+    /* About and interests */
+    #about .about-grid.about-simple{grid-template-columns:92px minmax(0,1fr);gap:16px;align-items:start}
+    #about .about-simple .avatar{width:92px;height:112px}
+    #about .about-intro-label{font-size:8px;margin-bottom:7px}
+    #about .about-intro-title{font-size:16px;line-height:1.3;margin-bottom:9px}
+    #about .about-simple .about-copy p{font-size:10px;line-height:1.6;margin-bottom:8px}
+    #about .about-intro-tags{gap:5px;margin-top:10px}
+    #about .about-intro-tags span{font-size:7px;padding:5px 6px}
+    #beyond .section-head{margin-bottom:18px}
+    #beyond .hobby-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+    #beyond .hobby-tab{min-height:40px;padding:8px 7px;font-size:8px;line-height:1.35}
+    #beyond .hobby-panel{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:13px;min-height:0}
+    #beyond .hobby-panel-mark{width:36px;height:36px;font-size:19px}
+    #beyond .hobby-panel-kicker{font-size:7px}
+    #beyond .hobby-panel-copy h3{font-size:14px}
+    #beyond .hobby-panel-copy p{font-size:10px;line-height:1.55}
+    #beyond .hobby-panel-stat{grid-column:1/-1;display:flex;align-items:baseline;gap:6px;padding:9px 0 0;border-top:1px solid rgba(151,180,211,.15)}
+    #beyond .hobby-panel-stat strong{font-size:15px}
+    #beyond .hobby-panel-stat span{font-size:7px;margin-right:8px}
+    #beyond .beyond-foot{font-size:7px;gap:8px;flex-wrap:wrap}
+
+    /* Contact stays easy to act on */
+    #contact{padding:38px 0 24px}
+    #contact .contact-shell{padding:20px 16px}
+    #contact .contact-headline{font-size:31px;line-height:1.08}
+    #contact .contact-intro{font-size:11px;line-height:1.65}
+    #contact .contact-primary{min-height:46px;display:inline-flex;align-items:center;padding:0 15px;font-size:10px}
+    #contact .contact-socials{gap:18px;font-size:10px}
+    #contact .contact-side{margin-top:22px}
+    #contact .contact-detail{min-height:56px;padding:9px 0}
+    #contact .contact-detail-copy strong{font-size:10px;overflow-wrap:anywhere}
+    #contact .contact-shell-foot{font-size:7px;gap:8px;flex-wrap:wrap}
+  }
+  @media(max-width:380px){
+    .container{padding-left:16px;padding-right:16px}
+    h1.hero-name{font-size:35px}
+    .hero-cta{grid-template-columns:1fr}
+    #about .about-grid.about-simple{grid-template-columns:1fr}
+    #about .about-simple .avatar{width:112px;height:130px}
+    #about .about-simple .about-copy p{font-size:11px}
+  }
+
 </style>
 </head>
 <body>
@@ -749,7 +891,8 @@
       <div class="hero-greet">Hello, I'm</div>
       <h1 class="hero-name">Bodepu Mounika</h1>
       <div class="hero-typing" id="typing"></div>
-      <p class="hero-sub">My journey hasn't followed a straight line - from agriculture to finance, from banking technology to building with AI.<br><br>Each step has changed how I look at problems, people, and possibilities.<br><br>Today, I work across 42 enterprise banking applications at HCLTech, while building AI-powered products that bring together my interests in finance, technology, and problem-solving.<br><br>I'm here to keep learning, building, and turning interesting questions into useful products.</p>
+      <p class="hero-sub hero-sub-desktop">My journey hasn't followed a straight line - from agriculture to finance, from banking technology to building with AI.<br><br>Each step has changed how I look at problems, people, and possibilities.<br><br>Today, I work across 42 enterprise banking applications at HCLTech, while building AI-powered products that bring together my interests in finance, technology, and problem-solving.<br><br>I'm here to keep learning, building, and turning interesting questions into useful products.</p>
+      <p class="hero-sub hero-sub-mobile">I work across <strong>42 enterprise banking applications at HCLTech</strong> and build AI products at the intersection of finance, technology and real-world problem solving.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#work">Explore my work</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
