@@ -514,6 +514,22 @@
     .hcl-exp,.paterson-exp{grid-template-columns:30px minmax(0,1fr);gap:14px}
   }
 
+
+  /* HCLTech current workstreams — grouped domain map */
+  .hcl-workstreams{margin-top:20px;padding-top:16px;border-top:1px solid rgba(105,240,209,.16)}
+  .hcl-workstreams-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px;color:var(--text-dimmer);font:8px var(--mono);letter-spacing:.1em}
+  .hcl-workstreams-kicker{color:var(--signal);font-size:9px;font-weight:600}
+  .hcl-domain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .hcl-domain{min-width:0;padding:12px 13px;border:1px solid rgba(151,180,211,.13);background:linear-gradient(135deg,rgba(105,240,209,.035),rgba(112,167,255,.035));transition:border-color .2s,background .2s}
+  .hcl-domain:hover{border-color:rgba(105,240,209,.34);background:rgba(105,240,209,.055)}
+  .hcl-domain-wide{grid-column:1/-1}
+  .hcl-domain-index{font:8px var(--mono);letter-spacing:.09em;color:var(--electric);margin-bottom:5px}
+  .hcl-domain h4{font:600 11px var(--sans);color:var(--text);margin-bottom:8px}
+  .hcl-domain-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .hcl-domain-tags span{font:8.5px var(--mono);line-height:1.35;color:#B9CADB;border:1px solid rgba(151,180,211,.16);background:rgba(5,12,22,.32);padding:4px 6px}
+  .hcl-workstreams-note{margin-top:10px;color:var(--text-dimmer);font:9px/1.5 var(--mono)}
+  @media(max-width:680px){.hcl-domain-grid{grid-template-columns:1fr}.hcl-domain-wide{grid-column:auto}.hcl-workstreams-head{align-items:flex-start;flex-direction:column;gap:4px}}
+
 </style>
 </head>
 <body>
@@ -707,6 +723,37 @@
             <li>Support application onboarding, disaster recovery planning, access governance and security evidence management.</li>
           </ul>
           <div class="hcl-tags"><span>IT Governance</span><span>Application Risk</span><span>GRC</span><span>Security Compliance</span><span>Risk Assessments</span><span>Stakeholder Management</span><span>JIRA</span><span>ServiceNow</span></div>
+          <div class="hcl-workstreams">
+            <div class="hcl-workstreams-head"><span class="hcl-workstreams-kicker">CURRENT WORKSTREAMS</span><span>CONCEPTS · CONTROLS · PLATFORMS</span></div>
+            <div class="hcl-domain-grid">
+              <div class="hcl-domain">
+                <div class="hcl-domain-index">01 / MONITOR &amp; TEST</div>
+                <h4>Security monitoring &amp; testing</h4>
+                <div class="hcl-domain-tags"><span>ConMon</span><span>APT testing</span><span>Third-party testing</span><span>Cyber hygiene</span></div>
+              </div>
+              <div class="hcl-domain">
+                <div class="hcl-domain-index">02 / IDENTIFY &amp; REMEDIATE</div>
+                <h4>Vulnerability &amp; risk management</h4>
+                <div class="hcl-domain-tags"><span>Vulnerability remediation</span><span>Security patching</span><span>Risk assessments</span></div>
+              </div>
+              <div class="hcl-domain">
+                <div class="hcl-domain-index">03 / CONTROL ACCESS</div>
+                <h4>Identity &amp; privileged access</h4>
+                <div class="hcl-domain-tags"><span>IAM</span><span>Authentication</span><span>Authorisation</span><span>PAM</span><span>CyberArk</span><span>AccessGate</span><span>CIDP</span></div>
+              </div>
+              <div class="hcl-domain">
+                <div class="hcl-domain-index">04 / PROTECT CRYPTO ASSETS</div>
+                <h4>Certificates &amp; post-quantum readiness</h4>
+                <div class="hcl-domain-tags"><span>Certificate management</span><span>PQC key onboarding</span></div>
+              </div>
+              <div class="hcl-domain hcl-domain-wide">
+                <div class="hcl-domain-index">05 / GOVERN &amp; MONITOR APPLICATIONS</div>
+                <h4>Application security &amp; governance</h4>
+                <div class="hcl-domain-tags"><span>Decentralised solution governance</span><span>DB-DAM alerts</span><span>Security governance</span></div>
+              </div>
+            </div>
+            <p class="hcl-workstreams-note">A snapshot of the security, risk and governance areas I coordinate across enterprise applications.</p>
+          </div>
         </div>
         <div class="hcl-visual" aria-hidden="true">
           <div class="hcl-ring hcl-ring-one"></div><div class="hcl-ring hcl-ring-two"></div>
