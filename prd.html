@@ -68,6 +68,7 @@ h3{font-size:15px;margin:32px 0 12px}h3:first-child{margin-top:0}
 .nb{border:1px solid var(--line);background:var(--p);padding:12px 14px;font-size:13.5px;border-left:2px solid var(--lc)}
 .nb.d{border-style:dashed;border-left-style:solid}
 .nb small{display:block;margin-top:6px;color:var(--flag);font-family:var(--mono);font-size:11.5px}
+.arch-stack{max-width:720px;margin:0 auto}.arch-layer{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:start;border:1px solid var(--line);background:var(--p);padding:15px 17px;border-left:2px solid var(--sig)}.arch-index{font:10.5px var(--mono);color:var(--sig)}.arch-layer strong{font-size:14px}.arch-layer p{font-size:13px;color:var(--dim);margin-top:5px}.arch-arrow{text-align:center;color:var(--sig);font:16px var(--mono);padding:4px}.tool-count{display:flex;align-items:center;gap:14px;margin:16px 0}.tool-count strong{font:700 28px var(--mono);color:var(--sig)}.tool-count span{font-size:13px;color:var(--dim)}@media(max-width:600px){.arch-layer{grid-template-columns:1fr;gap:5px}}
 .tm{display:flex;flex-wrap:wrap;gap:8px}
 .tm span{font-family:var(--mono);font-size:11.5px;color:var(--sig);border:1px solid rgba(94,234,212,.35);padding:5px 10px}
 .ac{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
@@ -160,6 +161,61 @@ jobs:{name:"Job Search Copilot",tag:"In progress",ver:"v0.1 draft",status:"Draft
  risk:[["A precise-looking score hides uncertainty","Show reasons and bands instead of a single exact number"],["The AI suggests experience the user does not have","Flag unsupported claims for review"],["Resume data is personal","Do not store resumes by default"]],
  terms:["Semantic matching","ATS keywords","Fit scoring","Prompt design","Structured output","Hallucination guardrails","Privacy by design","User research"]}
 };
+
+P.creditlens.tools=["Python","Streamlit","FastAPI","scikit-learn","SHAP","Gemini API","Pandas","NumPy","Plotly","SQLite","JWT","joblib"];
+P.creditlens.arch=[
+["01 · User","Credit-risk analyst / reviewer","Opens the Streamlit app, explores the bundled dataset or uploads a compatible CSV/XLSX file."],
+["02 · Presentation","Streamlit application","Renders upload forms, validation feedback, portfolio metrics, borrower watchlists, charts and copilot interaction."],
+["03 · Data preparation","Validation + feature engineering","Checks the required 23 source columns and creates five engineered features before scoring."],
+["04 · Model inference","Random Forest model artifact","Loads the trained model with joblib and produces next-month default probabilities and threshold-based predictions."],
+["05 · Explainability + AI","SHAP reports + Gemini copilot","Displays bundled-demo SHAP reports; prepares selected-borrower prediction context and available evidence for Gemini responses."],
+["06 · API, identity + persistence","FastAPI · JWT · SQLite","Supporting API and authentication components; SQLite-backed user, analysis-run and borrower-prediction persistence."]
+];
+P.creditlens.design=[
+["Input contract","CSV/XLSX uploads must match the documented 23-column Taiwan credit-card feature schema. Validation happens before scoring; five engineered features are derived in the app."],
+["Inference path","The saved Random Forest artifact is loaded for inference. The model estimates next-month default probability; a 0.50 threshold is used for binary prediction. Risk bands at 30% and 60% are illustrative, not bank policy."],
+["Explainability boundary","Current SHAP reports are generated from the bundled demo evaluation dataset. They are not dynamically recomputed for uploaded datasets. SHAP describes model behaviour, not causality."],
+["Copilot boundary","Gemini receives the selected borrower's prediction context and available explanation evidence. Its response is experimental decision support and must be checked against source data."],
+["Persistence + identity","The codebase includes FastAPI, JWT authentication and SQLite repository components for users, analysis history and borrower predictions."],
+["Operational safeguards","Keep scoring usable independently of Gemini availability; protect secrets and uploaded data; add independent validation, calibration, fairness testing and monitoring before real lending use."]
+];
+P.protein.repo="https://github.com/Mounikabodepu/protein-budget-advisor";
+P.protein.tools=["Python","Streamlit","Gemini API","Supabase"];
+P.protein.arch=[
+["01 · User inputs","Meal planner","Enters daily budget, protein target, protein already consumed and ingredients currently available."],
+["02 · App validation","Streamlit + Python","Validates inputs and asks the user to clarify possible overlap between food already counted and detailed calorie logs."],
+["03 · AI recommendation","Gemini API","Generates candidate dishes using current ingredients only, following prompt rules against invented ingredients."],
+["04 · Deterministic logic","Python calculation layer","Separates makeable-now dishes from suggested purchases, sorts options by estimated cost and identifies the most budget-efficient item to close a protein gap."],
+["05 · Tracking + persistence","Supabase Auth + database","Supports sign-in and stores profile and daily-log information for the tracking experience."]
+];
+P.protein.design=[
+["Input model","Daily budget, protein target, protein already eaten and kitchen inventory are explicit inputs. Ingredients can be selected from common items or entered manually."],
+["AI boundary","Gemini is used for recipe reasoning. Price and protein figures are estimates and labelled as such; the model is instructed not to invent ingredients."],
+["Business logic","The app separates recipes possible with current ingredients from the item suggested for purchase. Cost sorting and step-to-calorie estimates are handled by application logic, not an LLM."],
+["Double-count prevention","When food could be counted on both the recommendation and calorie-tracker flows, the user is asked to clarify instead of silently adding overlapping totals."],
+["Identity + data","Supabase provides authentication and persistence, including profiles and daily_logs. API keys are managed through deployment secrets."],
+["Current limitations","Live grocery pricing is not connected; nutrition and cost estimates need user verification. Photo-based food logging remains future scope."]
+];
+P.cashflow.tag="In development"; P.cashflow.status="In progress · MVP build"; P.cashflow.ver="v0.2";
+P.cashflow.tools=["Python","Streamlit","SQLite","Pandas","Gemini API"];
+P.cashflow.arch=[
+["01 · Business user","SME owner / finance admin","Uploads financial documents and reviews extracted records and financial position."],
+["02 · Application layer","Streamlit interface","Provides the current prototype workflow for document upload, financial records and dashboard insights."],
+["03 · Document pipeline","Validation → text extraction → classification","Validates the file, extracts readable text and classifies the document type."],
+["04 · Structured extraction","Invoice / bill extraction","For customer invoices and supplier bills, extracts key fields and validates them; incomplete fields are retained for review."],
+["05 · Financial data layer","SQLite + deterministic financial engine","Persists document and extracted invoice records; calculates invoice-based receivable/payable totals, outstanding balances and overdue positions."],
+["06 · Retrieval layer","Text chunking + vector indexing","Indexes extracted document text so relevant source material can be retrieved for later question answering."],
+["07 · AI assistance","RAG copilot · development stage","The intended copilot will explain verified financial records using retrieved context. It must not calculate balances or execute payments."]
+];
+P.cashflow.design=[
+["Document ingestion","Current pipeline validates uploaded files, extracts text, classifies document type and returns processing status and validation feedback."],
+["Structured extraction","Customer invoices and supplier bills are parsed into structured fields. Validation errors are surfaced; extracted records can be saved for user correction."],
+["Financial source of truth","Invoice-based calculations remain deterministic in the financial engine. Current metrics cover receivables/payables totals, outstanding amounts, net outstanding position and overdue balances."],
+["Retrieval and AI","Extracted document text is indexed for retrieval. The RAG copilot is being developed to answer questions from retrieved source records; generated text must not become the source of financial arithmetic."],
+["Integration strategy","Zoho Books authentication was explored but is not a completed production integration. The MVP should prove the workflow with controlled sample/uploaded data before a live accounting connector."],
+["Safety and reliability","Validate dates, amounts, duplicate candidates and required fields; retain source references; show extraction uncertainty; require a person to review suggested actions. No autonomous payments."]
+];
+
 const key=new URLSearchParams(location.search).get("p"),k=P[key]?key:"protein",d=P[k];
 document.title=d.name+" PRD | Bodepu Mounika";
 const li=a=>a.map(x=>`<li>${x}</li>`).join("");
@@ -174,9 +230,10 @@ const T={
  "Requirements":`<div class="rw h"><span>ID</span><span>Requirement</span><span>Priority</span><span>Status</span></div>${d.req.map((r,i)=>`<div class="rw"><span class="id">R${i+1}</span><span>${r[1]}</span><span class="ch ${r[0].toLowerCase()}">${r[0]}</span><span class="ch ${st[r[2]]}">${r[2]}</span></div>`).join("")}`,
  "Workflow":`<div class="lg">${Object.keys(LC).map(l=>`<span style="--lc:${LC[l]}"><i></i>${l}</span>`).join("")}</div><div class="flow">${d.flow.map((n,i)=>`<div class="nd" style="--i:${i};--lc:${LC[n[0]]}"><div class="ln">${n[0]}</div><div class="nb ${n[2]?"d":""}">${n[1]}${n[2]?`<small>${n[2]}</small>`:""}</div></div>`).join("")}</div>`,
  "Metrics and risks":`<h3>Success metrics</h3><div class="rw m h"><span>Metric</span><span>Target</span><span>Type</span></div>${d.met.map(m=>`<div class="rw m"><span>${m[0]}</span><span class="t">${m[1]}</span><span class="ch">${m[2]}</span></div>`).join("")}<h3>Risks and mitigations</h3><div class="g2">${d.risk.map(r=>`<div class="bx"><div class="k">RISK</div><div class="v">${r[0]}</div><div class="k" style="margin-top:12px">MITIGATION</div><p class="t">${r[1]}</p></div>`).join("")}</div>`,
- "Terms":`<p class="t" style="margin-bottom:18px">Product and technical concepts this project exercised.</p><div class="tm">${d.terms.map(x=>`<span>${x}</span>`).join("")}</div>`
+ "Terms":`<p class="t" style="margin-bottom:18px">Product and technical concepts this project exercised.</p><div class="tm">${d.terms.map(x=>`<span>${x}</span>`).join("")}</div>`,
+ "Architecture & system design":`<h3>System architecture · end-to-end flow</h3><p class="t" style="margin-bottom:20px">${d===P.cashflow?"Current implementation plus clearly labelled in-progress components.":"Implemented prototype and its current boundaries."}</p><div class="arch-stack">${d.arch.map((a,i)=>`<div class="arch-layer"><div class="arch-index">${a[0]}</div><div><strong>${a[1]}</strong><p>${a[2]}</p></div></div>${i<d.arch.length-1?'<div class="arch-arrow">↓</div>':""}`).join("")}</div><h3>System design decisions</h3><div class="g2">${d.design.map(x=>`<div class="bx"><div class="k">${x[0].toUpperCase()}</div><p class="t">${x[1]}</p></div>`).join("")}</div><h3>Tools & technologies</h3><div class="tool-count"><strong>${d.tools.length}</strong><span>core tools / technologies documented for this project</span></div><div class="tm">${d.tools.map(x=>`<span>${x}</span>`).join("")}</div>`
 };
-const names=Object.keys(T),keys=Object.keys(P),nx=P[keys[(keys.indexOf(k)+1)%keys.length]];
+const names=Object.keys(T),keys=["creditlens","protein","cashflow"],nx=P[keys[(keys.indexOf(k)+1)%keys.length]];
 app.innerHTML=`<div class="sw">${keys.map(x=>`<a href="?p=${x}" class="${x==k?"on":""}">${P[x].name}</a>`).join("")}</div>
 <div class="ey">Product requirements document · ${d.tag}</div><h1>${d.name}</h1><p class="sum">${d.sum}</p>
 <div class="ac">${d.live?`<a class="lv" href="${d.live}" target="_blank" rel="noopener">Live app ↗</a>`:`<span>Live app: available once the build ships</span>`}${d.repo?`<a href="${d.repo}" target="_blank" rel="noopener">GitHub repository ↗</a>`:""}</div>
