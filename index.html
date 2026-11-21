@@ -309,12 +309,29 @@
   .contact-email{font-size:clamp(20px,4vw,34px);letter-spacing:-.04em}
   .contact-cell .v{color:#D5E4F4}
   .footer-note{letter-spacing:.06em}
-  .skills-panel{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .skill-group{border:1px solid var(--line);border-radius:12px;padding:22px;background:linear-gradient(145deg,rgba(17,28,43,.9),rgba(9,15,24,.92));min-height:174px}
-  .skill-group h3{font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:16px}
-  .skill-chips{display:flex;flex-wrap:wrap;gap:8px}
-  .skill-chips span{font:10px var(--mono);padding:7px 9px;border:1px solid rgba(151,180,211,.16);border-radius:5px;color:#B7C9DC;background:rgba(255,255,255,.025)}
-  .skill-note{font:10px var(--mono);color:#8299B3;margin-top:16px;letter-spacing:.04em}
+  .skills-panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;perspective:1000px}
+  .skill-group{position:relative;isolation:isolate;border:1px solid rgba(132,165,196,.18);border-radius:16px;padding:23px 22px 18px;background:linear-gradient(145deg,rgba(17,29,45,.96),rgba(8,14,24,.98));min-height:290px;overflow:hidden;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+  .skill-group:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.8;background:radial-gradient(circle at 100% 0%,var(--skill-glow),transparent 48%)}
+  .skill-group:after{content:"";position:absolute;left:22px;right:22px;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--skill-accent),transparent);opacity:.8}
+  .skill-group:hover{transform:translateY(-7px);border-color:var(--skill-border);box-shadow:0 22px 55px rgba(0,0,0,.3),0 0 28px var(--skill-shadow)}
+  .skill-product{--skill-accent:#69F0D1;--skill-glow:rgba(105,240,209,.15);--skill-border:rgba(105,240,209,.48);--skill-shadow:rgba(105,240,209,.08)}
+  .skill-ai{--skill-accent:#8CB8FF;--skill-glow:rgba(100,150,255,.17);--skill-border:rgba(140,184,255,.5);--skill-shadow:rgba(100,150,255,.09)}
+  .skill-enterprise{--skill-accent:#B6A0FF;--skill-glow:rgba(166,139,250,.17);--skill-border:rgba(182,160,255,.5);--skill-shadow:rgba(166,139,250,.09)}
+  .skill-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}
+  .skill-index{font:9px var(--mono);letter-spacing:.16em;color:var(--skill-accent)}
+  .skill-icon{width:37px;height:37px;display:grid;place-items:center;border:1px solid var(--skill-border);border-radius:11px;color:var(--skill-accent);background:rgba(255,255,255,.025);font-size:21px;box-shadow:0 0 22px var(--skill-shadow)}
+  .skill-group h3{font:600 15px var(--mono);letter-spacing:-.02em;color:#EAF2FC;margin-bottom:9px}
+  .skill-intro{font-size:12px;line-height:1.65;color:#8FA5BC;min-height:40px;margin-bottom:19px}
+  .skill-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .skill-chips span{font:9px var(--mono);letter-spacing:.01em;padding:7px 9px;border:1px solid rgba(151,180,211,.14);border-radius:6px;color:#C0D0E1;background:rgba(255,255,255,.035);transition:all .2s}
+  .skill-group:hover .skill-chips span{border-color:var(--skill-border);background:rgba(255,255,255,.055)}
+  .skill-card-foot{display:flex;align-items:center;gap:7px;margin-top:22px;padding-top:13px;border-top:1px solid rgba(151,180,211,.12);font:8px var(--mono);letter-spacing:.1em;color:var(--skill-accent)}
+  .skill-card-foot i{height:1px;flex:1;background:linear-gradient(90deg,var(--skill-accent),transparent);opacity:.5}
+  .skill-note{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font:9px var(--mono);color:#8299B3;margin-top:19px;letter-spacing:.08em}
+  .skill-note b{font-weight:400;color:#B9C9DA;border:1px solid rgba(151,180,211,.16);padding:6px 9px;border-radius:20px;background:rgba(255,255,255,.025)}
+  .skill-pulse{width:7px;height:7px;border-radius:50%;background:#69F0D1;box-shadow:0 0 12px #69F0D1;display:inline-block}
+  @media(max-width:900px){.skills-panel{grid-template-columns:1fr 1fr}.skill-enterprise{grid-column:1/-1}}
+  @media(max-width:600px){.skills-panel{grid-template-columns:1fr}.skill-enterprise{grid-column:auto}.skill-group{min-height:unset}.skill-intro{min-height:unset}}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
   .reveal.visible{opacity:1;transform:translateY(0)}
   @media(max-width:760px){
@@ -388,16 +405,34 @@
 <section id="skills">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">Capabilities</div>
+      <div class="eyebrow">Capabilities / My working stack</div>
       <h2 class="section-title">The toolkit behind the work.</h2>
-      <p class="section-sub">A mix of product judgment, enterprise experience and hands-on building.</p>
+      <p class="section-sub">Three complementary strengths — shaping products, building with AI, and navigating complex enterprise systems.</p>
     </div>
     <div class="skills-panel">
-      <div class="skill-group"><h3>Product &amp; Leadership</h3><div class="skill-chips"><span>Product thinking</span><span>Problem discovery</span><span>Stakeholder management</span><span>Cross-functional coordination</span><span>Prioritisation</span><span>PRD writing</span></div></div>
-      <div class="skill-group"><h3>AI &amp; Engineering</h3><div class="skill-chips"><span>Python</span><span>SQL</span><span>GenAI</span><span>RAG</span><span>Machine learning</span><span>Streamlit</span><span>FastAPI</span><span>Gemini API</span><span>LangChain</span></div></div>
-      <div class="skill-group"><h3>Enterprise &amp; Risk</h3><div class="skill-chips"><span>IT Governance</span><span>GRC</span><span>Risk assessment</span><span>Security compliance</span><span>JIRA</span><span>ServiceNow</span><span>Power BI</span></div></div>
+      <article class="skill-group skill-product">
+        <div class="skill-card-top"><span class="skill-index">01 / PRODUCT</span><span class="skill-icon">✳</span></div>
+        <h3>Product &amp; Leadership</h3>
+        <p class="skill-intro">Turning ambiguous problems into clear priorities and useful experiences.</p>
+        <div class="skill-chips"><span>Product thinking</span><span>Problem discovery</span><span>Stakeholder management</span><span>Cross-functional coordination</span><span>Prioritisation</span><span>PRD writing</span></div>
+        <div class="skill-card-foot"><span>DISCOVER</span><i></i><span>DEFINE</span><i></i><span>DELIVER</span></div>
+      </article>
+      <article class="skill-group skill-ai">
+        <div class="skill-card-top"><span class="skill-index">02 / BUILD</span><span class="skill-icon">⌘</span></div>
+        <h3>AI &amp; Engineering</h3>
+        <p class="skill-intro">Hands-on experimentation across data, machine learning and generative AI.</p>
+        <div class="skill-chips"><span>Python</span><span>SQL</span><span>GenAI</span><span>RAG</span><span>Machine learning</span><span>Streamlit</span><span>FastAPI</span><span>Gemini API</span><span>LangChain</span></div>
+        <div class="skill-card-foot"><span>DATA</span><i></i><span>MODELS</span><i></i><span>APPLICATIONS</span></div>
+      </article>
+      <article class="skill-group skill-enterprise">
+        <div class="skill-card-top"><span class="skill-index">03 / OPERATE</span><span class="skill-icon">◈</span></div>
+        <h3>Enterprise &amp; Risk</h3>
+        <p class="skill-intro">Working across banking applications, controls, risk and stakeholder ecosystems.</p>
+        <div class="skill-chips"><span>IT Governance</span><span>GRC</span><span>Risk assessment</span><span>Security compliance</span><span>JIRA</span><span>ServiceNow</span><span>Power BI</span></div>
+        <div class="skill-card-foot"><span>GOVERN</span><i></i><span>ASSESS</span><i></i><span>IMPROVE</span></div>
+      </article>
     </div>
-    <div class="skill-note">CURRENTLY EXPLORING · AI EVALUATION · SYSTEM DESIGN · PRODUCT METRICS</div>
+    <div class="skill-note"><span class="skill-pulse"></span> CURRENTLY EXPLORING <b>AI EVALUATION</b><b>SYSTEM DESIGN</b><b>PRODUCT METRICS</b></div>
   </div>
 </section>
 
