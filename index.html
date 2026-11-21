@@ -473,6 +473,11 @@
 
 
   /* ---------- PATERSON SECURITIES EXPERIENCE CARD ---------- */
+
+  .paterson-bullets{margin:12px 0 16px}
+  .paterson-bullets li{font-size:12.5px;line-height:1.6;padding-top:5px;padding-bottom:5px}
+  .paterson-bullets li:before{color:var(--signal)}
+
   .paterson-exp{border-top:1px solid var(--line);padding-top:26px}
   .paterson-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:center;overflow:hidden;padding:25px 26px 18px;border:1px solid rgba(112,167,255,.22);background:radial-gradient(ellipse at 88% 12%,rgba(112,167,255,.12),transparent 34%),linear-gradient(135deg,rgba(15,25,41,.96),rgba(9,16,27,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
   .paterson-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--electric),var(--signal))}
@@ -688,8 +693,12 @@
         <div class="paterson-main">
           <div class="exp-dates">APRIL – JULY · INTERNSHIP</div>
           <div class="exp-role">Equity Research &amp; Portfolio Management Intern <span>@ Paterson Securities</span></div>
-          <p class="paterson-summary">Early-career experience in equity research and portfolio management, bringing a market-oriented perspective to my finance background and later work in AI-powered financial products.</p>
-          <div class="paterson-tags"><span>Equity Research</span><span>Portfolio Management</span><span>Financial Markets</span><span>Investment Analysis</span></div>
+          <ul class="exp-bullets paterson-bullets">
+            <li>Conducted in-depth financial analysis, built valuation models and contributed to portfolio optimisation.</li>
+            <li>Applied DCF and relative valuation methods to assess investment opportunities.</li>
+            <li>Strengthened financial modelling and data analysis capabilities through hands-on research work.</li>
+          </ul>
+          <div class="paterson-tags"><span>Equity Research</span><span>DCF Valuation</span><span>Relative Valuation</span><span>Financial Modelling</span><span>Portfolio Optimisation</span><span>Data Analysis</span></div>
         </div>
         <div class="paterson-orbit" aria-hidden="true"><span>RESEARCH</span><i></i><b>PORTFOLIO</b></div>
         <div class="paterson-foot"><span>FINANCE EXPERIENCE</span><span>02 / 02</span></div>
