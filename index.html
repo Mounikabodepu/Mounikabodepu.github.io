@@ -471,6 +471,24 @@
   .all-projects-button:hover{border-color:var(--signal);box-shadow:0 0 24px rgba(105,240,209,.13);transform:translateY(-2px)}
   .all-projects-cta>span{font:10px var(--mono);color:var(--text-dimmer);letter-spacing:.04em}
 
+
+  /* ---------- PATERSON SECURITIES EXPERIENCE CARD ---------- */
+  .paterson-exp{border-top:1px solid var(--line);padding-top:26px}
+  .paterson-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:center;overflow:hidden;padding:25px 26px 18px;border:1px solid rgba(112,167,255,.22);background:radial-gradient(ellipse at 88% 12%,rgba(112,167,255,.12),transparent 34%),linear-gradient(135deg,rgba(15,25,41,.96),rgba(9,16,27,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+  .paterson-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--electric),var(--signal))}
+  .paterson-main{min-width:0}
+  .paterson-exp .exp-dates{letter-spacing:.12em;font-size:10px}
+  .paterson-summary{max-width:66ch;color:var(--text-dim);font-size:13px;line-height:1.65;margin:10px 0 16px}
+  .paterson-tags{display:flex;flex-wrap:wrap;gap:7px}
+  .paterson-tags span{font:10px var(--mono);color:#B8D3F4;border:1px solid rgba(112,167,255,.22);background:rgba(112,167,255,.045);padding:5px 8px}
+  .paterson-orbit{height:112px;position:relative;display:flex;align-items:center;justify-content:center;gap:9px;color:var(--electric);font:9px var(--mono);letter-spacing:.12em}
+  .paterson-orbit:before,.paterson-orbit:after{content:"";position:absolute;width:102px;height:102px;border:1px solid rgba(112,167,255,.22);border-radius:50%}
+  .paterson-orbit:after{width:72px;height:72px;border-color:rgba(105,240,209,.24)}
+  .paterson-orbit i{width:5px;height:5px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal);z-index:1}
+  .paterson-orbit span,.paterson-orbit b{z-index:1;font-weight:500;font-size:8px}
+  .paterson-foot{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;color:var(--text-dimmer);font:9px var(--mono);letter-spacing:.1em}
+  @media(max-width:680px){.paterson-card{grid-template-columns:1fr;padding:22px 18px 16px}.paterson-orbit{display:none}.paterson-foot{grid-column:auto}.paterson-exp{grid-template-columns:30px minmax(0,1fr);gap:14px}}
+
 </style>
 </head>
 <body>
@@ -661,6 +679,20 @@
           <li>Support enterprise application onboarding, disaster recovery planning, access governance, and security evidence management</li>
         </ul>
         <div class="exp-tags"><span>GRC</span><span>Risk Assessment</span><span>Security Compliance</span><span>IT Governance</span><span>Stakeholder Management</span><span>JIRA</span><span>ServiceNow</span></div>
+      </div>
+    </div>
+
+    <div class="exp-row paterson-exp">
+      <div class="exp-num">02</div>
+      <div class="paterson-card">
+        <div class="paterson-main">
+          <div class="exp-dates">APRIL – JULY · INTERNSHIP</div>
+          <div class="exp-role">Equity Research &amp; Portfolio Management Intern <span>@ Paterson Securities</span></div>
+          <p class="paterson-summary">Early-career experience in equity research and portfolio management, bringing a market-oriented perspective to my finance background and later work in AI-powered financial products.</p>
+          <div class="paterson-tags"><span>Equity Research</span><span>Portfolio Management</span><span>Financial Markets</span><span>Investment Analysis</span></div>
+        </div>
+        <div class="paterson-orbit" aria-hidden="true"><span>RESEARCH</span><i></i><b>PORTFOLIO</b></div>
+        <div class="paterson-foot"><span>FINANCE EXPERIENCE</span><span>02 / 02</span></div>
       </div>
     </div>
 
