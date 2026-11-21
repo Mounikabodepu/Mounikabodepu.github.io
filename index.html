@@ -703,6 +703,24 @@
   #beyond .section-sub{font-size:13px}
   @media(max-width:640px){.about-grid.about-simple{grid-template-columns:1fr;gap:25px}.about-simple .avatar{width:170px;height:190px}.about-intro-title{max-width:100%}}
 
+
+  /* ---------- MOBILE NAVIGATION ---------- */
+  .mobile-nav-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:42px;height:42px;padding:9px;border:1px solid var(--line-strong);background:rgba(13,20,32,.88);color:var(--text);cursor:pointer}
+  .mobile-nav-toggle span{display:block;width:17px;height:1.5px;background:var(--signal);transition:transform .2s ease,opacity .2s ease}
+  .mobile-nav-toggle[aria-expanded="true"] span:first-child{transform:translateY(6.5px) rotate(45deg)}
+  .mobile-nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-nav-toggle[aria-expanded="true"] span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+  @media(max-width:640px){
+    nav{position:sticky}
+    nav .container{position:relative;height:64px;padding-left:20px;padding-right:20px}
+    .mobile-nav-toggle{display:flex;flex:0 0 auto}
+    nav .nav-links{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;z-index:60;flex-direction:column;gap:0;padding:8px 20px 14px;background:rgba(7,11,18,.97);border:1px solid var(--line);border-top:0;box-shadow:0 18px 35px rgba(0,0,0,.35)}
+    nav .nav-links.is-open{display:flex}
+    nav .nav-links a{padding:12px 2px;border-bottom:1px solid var(--line);font-size:11px}
+    nav .nav-links a:last-child{border-bottom:0}
+  }
+  @media(prefers-reduced-motion:reduce){.mobile-nav-toggle span{transition:none}}
+
 </style>
 </head>
 <body>
@@ -711,7 +729,8 @@
 <nav>
   <div class="container">
     <div class="nav-name">bodepu<span>.</span>mounika</div>
-    <div class="nav-links">
+    <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="portfolio-nav-links"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="portfolio-nav-links">
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#case-studies">Case studies</a>
@@ -1085,6 +1104,37 @@ div>
   const track = document.getElementById('marquee');
   const doubled = [...skills, ...skills];
   track.innerHTML = doubled.map(s => `<span>${s}</span>`).join('');
+</script>
+
+
+<script>
+  // Accessible mobile navigation
+  (() => {
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const menu = document.getElementById('portfolio-nav-links');
+    if (!toggle || !menu) return;
+    const closeMenu = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation menu');
+      menu.classList.remove('is-open');
+    };
+    toggle.addEventListener('click', () => {
+      const opening = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(opening));
+      toggle.setAttribute('aria-label', opening ? 'Close navigation menu' : 'Open navigation menu');
+      menu.classList.toggle('is-open', opening);
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 640) closeMenu();
+    });
+  })();
 </script>
 
 <script src="bg.js"></script>
