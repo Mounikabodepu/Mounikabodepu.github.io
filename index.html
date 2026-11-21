@@ -123,6 +123,8 @@
   .thumb-links{ display:flex; gap:18px; margin-top:16px; font-family:var(--mono); font-size:12px; }
   .thumb-links a{ color:var(--signal); border-bottom:1px solid transparent; }
   .thumb-links a:hover{ border-color:var(--signal); }
+  .project-link-muted{color:var(--text-dimmer);font-family:var(--mono);font-size:12px;border-bottom:1px dashed var(--line-strong)}
+  .tool-count{display:flex;align-items:center;gap:10px;margin-top:13px}.tool-count strong{font:700 19px var(--mono);color:var(--signal)}.tool-count span{font:10px var(--mono);color:var(--text-dimmer)}
   .stack-row.terms span{ color:var(--signal); border-color:rgba(94,234,212,0.3); }
   .thumb-card{ transition:border-color .2s ease, transform .2s ease; }
   .thumb-card:hover{ border-color:var(--line-strong); transform:translateY(-3px); }
@@ -427,7 +429,7 @@
           <a class="thumb-title" style="display:block;" href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">CreditLens AI</a>
           <p class="thumb-desc">An explainable credit-risk intelligence app that combines a Random Forest model, borrower-level SHAP explanations and a Gemini-powered analyst copilot. Supports sample-data exploration and CSV-based assessment, while keeping the final decision with the human analyst.</p>
           <div class="stack-row terms" style="margin:14px 0 0;"><span>Credit risk ML</span><span>SHAP</span><span>Gemini API</span><span>Explainable AI</span></div>
-          <div class="thumb-links"><a href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/Mounikabodepu/CreditLens-AI" target="_blank" rel="noopener">GitHub ↗</a><a href="prd.html?p=creditlens">View PRD ↗</a></div>
+          <div class="thumb-links"><a href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/Mounikabodepu/CreditLens-AI" target="_blank" rel="noopener">GitHub ↗</a><a href="prd.html?p=creditlens">PRD · Architecture ↗</a></div><div class="tool-count"><strong>12</strong><span>core tools &amp; technologies</span></div>
         </div>
       </div>
 
@@ -445,7 +447,7 @@
           <a class="thumb-title" style="display:block;" href="prd.html?p=protein">Protein Budget Advisor</a>
           <p class="thumb-desc">A deployed AI-powered nutrition app that helps users explore protein-rich meals within a budget, with recipe suggestions and simple daily nutrition tracking.</p>
           <div class="stack-row terms" style="margin:14px 0 0;"><span>Gemini API</span><span>Streamlit</span><span>Supabase</span><span>Product iteration</span></div>
-          <div class="thumb-links"><a href="https://protein-budget-advisor-avagkzebunybappqv4eutfc.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a><a href="prd.html?p=protein">PRD &amp; workflow</a><a href="case-study-protein-advisor.html">Case study</a></div>
+          <div class="thumb-links"><a href="https://protein-budget-advisor-avagkzebunybappqv4eutfc.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/Mounikabodepu/protein-budget-advisor" target="_blank" rel="noopener">GitHub ↗</a><a href="prd.html?p=protein">PRD · Architecture ↗</a><a href="case-study-protein-advisor.html">Case study ↗</a></div><div class="tool-count"><strong>4</strong><span>core tools &amp; technologies</span></div>
         </div>
       </div>
 
@@ -465,7 +467,7 @@
           <a class="thumb-title" style="display:block;" href="prd.html?p=cashflow">CashFlow Intelligence</a>
           <p class="thumb-desc">An AI finance copilot for Indian SMEs, designed to turn invoices, bills and financial documents into cash-flow insights, early risk warnings and recommended actions. The PRD is ready; product development is in progress.</p>
           <div class="stack-row terms" style="margin:14px 0 0;"><span>PRD ready</span><span>SME finance</span><span>Cash-flow intelligence</span><span>AI copilot</span></div>
-          <div class="thumb-links"><a href="prd.html?p=cashflow">View PRD &amp; product direction ↗</a></div>
+          <div class="thumb-links"><span class="project-link-muted">Live app · In development</span><a href="prd.html?p=cashflow">PRD · Architecture ↗</a></div><div class="tool-count"><strong>5</strong><span>core tools &amp; technologies</span></div>
         </div>
       </div>
     </div>
