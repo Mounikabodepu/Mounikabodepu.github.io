@@ -464,6 +464,13 @@
     }
   }
 
+
+  /* ---------- ALL PROJECTS CTA ---------- */
+  .all-projects-cta{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:34px}
+  .all-projects-button{display:inline-flex;align-items:center;gap:14px;padding:13px 19px;border:1px solid rgba(105,240,209,.48);background:linear-gradient(110deg,rgba(105,240,209,.12),rgba(112,167,255,.08));color:var(--signal);font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;transition:all .2s}
+  .all-projects-button:hover{border-color:var(--signal);box-shadow:0 0 24px rgba(105,240,209,.13);transform:translateY(-2px)}
+  .all-projects-cta>span{font:10px var(--mono);color:var(--text-dimmer);letter-spacing:.04em}
+
 </style>
 </head>
 <body>
@@ -601,6 +608,10 @@
           <div class="thumb-links"><span class="project-link-muted">Live app · In development</span><a href="prd.html?p=cashflow">PRD · Architecture ↗</a></div><div class="tool-count"><strong>5</strong><span>core tools &amp; technologies</span></div>
         </div>
       </div>
+    </div>
+    <div class="all-projects-cta">
+      <a class="all-projects-button" href="projects.html">Explore all projects <span aria-hidden="true">↗</span></a>
+      <span>AI products · Finance · Analytics · MBA work</span>
     </div>
   </div>
 </section>
