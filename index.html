@@ -383,6 +383,44 @@
     .skill-group{padding:22px 20px 18px}
   }
 
+
+  /* === Wider, consistent Toolkit + Projects layout === */
+  #skills .skills-panel{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:22px !important;
+    align-items:stretch;
+  }
+  #skills .skill-group{
+    width:100%;
+    min-width:0;
+    min-height:0;
+    padding:26px !important;
+  }
+  #skills .skill-enterprise{grid-column:1 / -1}
+  #skills .skill-intro{min-height:0;max-width:58ch}
+  #skills .skill-chips{gap:10px}
+  #skills .skill-chip{font-size:10px;padding:9px 11px}
+  #work .work-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:24px !important;
+    align-items:stretch;
+  }
+  #work .thumb-card{min-width:0;width:100%;border-radius:14px;overflow:hidden}
+  #work .thumb-preview{aspect-ratio:16 / 9}
+  #work .thumb-body{padding:24px}
+  #work .thumb-title{font-size:20px}
+  #work .thumb-desc{font-size:14px;line-height:1.65}
+  #work .thumb-links{flex-wrap:wrap;row-gap:10px}
+  #work .tool-count{margin-top:18px}
+  @media(max-width:760px){
+    #skills .skills-panel,#work .work-grid{
+      grid-template-columns:minmax(0,1fr) !important;
+    }
+    #skills .skill-enterprise{grid-column:auto}
+  }
+
 </style>
 </head>
 <body>
