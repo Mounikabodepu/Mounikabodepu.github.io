@@ -358,6 +358,31 @@
     .status-pill{font-size:9px}
   }
 
+
+  /* ---------- TOOLKIT LAYOUT REFINEMENT ---------- */
+  /* Two roomy columns keep the three skill groups readable without a tall,
+     narrow three-column layout. The third card naturally occupies row two. */
+  .skills-panel{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+    align-items:stretch;
+  }
+  .skill-group{
+    min-width:0;
+    min-height:0;
+    padding:26px 26px 20px;
+  }
+  .skill-group h3{font-size:16px}
+  .skill-intro{min-height:0;max-width:48ch}
+  .skill-chips{gap:9px}
+  .skill-chip{font-size:10px;padding:9px 11px}
+  .skill-meter{font-size:8px}
+  .skill-card-foot{margin-top:20px}
+  @media(max-width:640px){
+    .skills-panel{grid-template-columns:minmax(0,1fr);gap:16px}
+    .skill-group{padding:22px 20px 18px}
+  }
+
 </style>
 </head>
 <body>
