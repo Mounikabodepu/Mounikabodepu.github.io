@@ -472,27 +472,47 @@
   .all-projects-cta>span{font:10px var(--mono);color:var(--text-dimmer);letter-spacing:.04em}
 
 
-  /* ---------- PATERSON SECURITIES EXPERIENCE CARD ---------- */
 
+
+
+  /* ---------- FEATURED EXPERIENCE CARDS ---------- */
+  .hcl-exp,.paterson-exp{border-top:1px solid var(--line);padding-top:26px}
+  .hcl-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:center;overflow:hidden;padding:25px 26px 18px;border:1px solid rgba(105,240,209,.27);background:radial-gradient(ellipse at 88% 12%,rgba(105,240,209,.13),transparent 35%),linear-gradient(135deg,rgba(10,31,37,.97),rgba(9,17,29,.96));box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 14px 40px rgba(0,0,0,.12);transition:border-color .25s,transform .25s,box-shadow .25s}
+  .hcl-card:hover{border-color:rgba(105,240,209,.55);transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,0,0,.22),0 0 28px rgba(105,240,209,.055)}
+  .hcl-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--signal),var(--electric))}
+  .hcl-main,.paterson-main{min-width:0}
+  .hcl-topline{display:flex;align-items:center;gap:8px;margin-bottom:12px;color:#9FE9DA;font:9px var(--mono);letter-spacing:.12em}
+  .hcl-live-dot{width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
+  .hcl-top-sep{color:var(--text-dimmer)}
+  .hcl-exp .exp-dates,.paterson-exp .exp-dates{letter-spacing:.12em;font-size:10px}
+  .hcl-exp .exp-role{font-size:19px;line-height:1.4}
+  .hcl-summary{max-width:68ch;color:var(--text-dim);font-size:13px;line-height:1.7;margin:9px 0 12px}
+  .hcl-bullets{margin:8px 0 15px}
+  .hcl-bullets li,.paterson-bullets li{font-size:12.5px;line-height:1.62;padding-top:5px;padding-bottom:5px}
+  .hcl-bullets li:before{color:var(--signal)}
+  .hcl-tags,.paterson-tags{display:flex;flex-wrap:wrap;gap:7px}
+  .hcl-tags span{font:10px var(--mono);color:#A9E8DC;border:1px solid rgba(105,240,209,.23);background:rgba(105,240,209,.045);padding:5px 8px}
+  .hcl-visual{height:150px;position:relative;display:flex;align-items:center;justify-content:center}
+  .hcl-ring{position:absolute;border:1px solid rgba(105,240,209,.2);border-radius:50%;width:132px;height:132px}
+  .hcl-ring-one{border-style:dashed;animation:hclOrbit 28s linear infinite}
+  .hcl-ring-two{width:94px;height:94px;border-color:rgba(112,167,255,.27)}
+  @keyframes hclOrbit{to{transform:rotate(360deg)}}
+  .hcl-core{width:70px;height:70px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(105,240,209,.16),rgba(10,25,34,.92));border:1px solid rgba(105,240,209,.42);box-shadow:0 0 25px rgba(105,240,209,.1);z-index:1}
+  .hcl-core strong{font:700 25px var(--mono);color:var(--signal);line-height:1.1}
+  .hcl-core span{font:7px var(--mono);color:var(--text-dimmer);letter-spacing:.08em;margin-top:3px}
+  .hcl-orbit-label{position:absolute;z-index:2;color:#A9C6D4;background:#0B1722;padding:3px 5px;font:8px var(--mono);letter-spacing:.1em}
+  .hcl-label-top{top:0}.hcl-label-right{right:-2px;top:48%}.hcl-label-bottom{bottom:0}
+  .hcl-foot,.paterson-foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:12px;color:var(--text-dimmer);font:9px var(--mono);letter-spacing:.1em}
+  .paterson-card{transition:border-color .25s,transform .25s,box-shadow .25s}
+  .paterson-card:hover{border-color:rgba(112,167,255,.55);transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,0,0,.22),0 0 28px rgba(112,167,255,.06)}
   .paterson-bullets{margin:12px 0 16px}
-  .paterson-bullets li{font-size:12.5px;line-height:1.6;padding-top:5px;padding-bottom:5px}
-  .paterson-bullets li:before{color:var(--signal)}
-
-  .paterson-exp{border-top:1px solid var(--line);padding-top:26px}
-  .paterson-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:center;overflow:hidden;padding:25px 26px 18px;border:1px solid rgba(112,167,255,.22);background:radial-gradient(ellipse at 88% 12%,rgba(112,167,255,.12),transparent 34%),linear-gradient(135deg,rgba(15,25,41,.96),rgba(9,16,27,.94));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
-  .paterson-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--electric),var(--signal))}
-  .paterson-main{min-width:0}
-  .paterson-exp .exp-dates{letter-spacing:.12em;font-size:10px}
-  .paterson-summary{max-width:66ch;color:var(--text-dim);font-size:13px;line-height:1.65;margin:10px 0 16px}
-  .paterson-tags{display:flex;flex-wrap:wrap;gap:7px}
-  .paterson-tags span{font:10px var(--mono);color:#B8D3F4;border:1px solid rgba(112,167,255,.22);background:rgba(112,167,255,.045);padding:5px 8px}
-  .paterson-orbit{height:112px;position:relative;display:flex;align-items:center;justify-content:center;gap:9px;color:var(--electric);font:9px var(--mono);letter-spacing:.12em}
-  .paterson-orbit:before,.paterson-orbit:after{content:"";position:absolute;width:102px;height:102px;border:1px solid rgba(112,167,255,.22);border-radius:50%}
-  .paterson-orbit:after{width:72px;height:72px;border-color:rgba(105,240,209,.24)}
-  .paterson-orbit i{width:5px;height:5px;border-radius:50%;background:var(--signal);box-shadow:0 0 12px var(--signal);z-index:1}
-  .paterson-orbit span,.paterson-orbit b{z-index:1;font-weight:500;font-size:8px}
-  .paterson-foot{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;color:var(--text-dimmer);font:9px var(--mono);letter-spacing:.1em}
-  @media(max-width:680px){.paterson-card{grid-template-columns:1fr;padding:22px 18px 16px}.paterson-orbit{display:none}.paterson-foot{grid-column:auto}.paterson-exp{grid-template-columns:30px minmax(0,1fr);gap:14px}}
+  .paterson-bullets li:before{color:var(--electric)}
+  @media(max-width:680px){
+    .hcl-card,.paterson-card{grid-template-columns:1fr;padding:22px 18px 16px}
+    .hcl-visual,.paterson-orbit{display:none}
+    .hcl-foot,.paterson-foot{grid-column:auto}
+    .hcl-exp,.paterson-exp{grid-template-columns:30px minmax(0,1fr);gap:14px}
+  }
 
 </style>
 </head>
@@ -671,19 +691,29 @@
       <p class="section-sub">Coordinating application risk, security controls, and cross-functional delivery across 42 banking applications.</p>
     </div>
 
-    <div class="exp-row">
+    <div class="exp-row hcl-exp">
       <div class="exp-num">01</div>
-      <div>
-        <div class="exp-dates">Aug 2025 – Present · Bengaluru, India</div>
-        <div class="exp-role">IT Application Owner (Senior Management Trainee) <span>@ HCL Technologies</span></div>
-        <ul class="exp-bullets">
-          <li>Coordinate application governance, risk, and security compliance across 42 enterprise banking applications, working with ITAOs, engineering teams, and business stakeholders</li>
-          <li>Coordinate enterprise-wide security assessments — OSS attestations, SSO onboarding, PQC vendor assessments, risk reviews — within SLA timelines</li>
-          <li>Lead cross-functional communication between application teams, cybersecurity, infrastructure, and vendors to resolve compliance gaps</li>
-          <li>Track control execution, non-compliance remediation, and project milestones through JIRA and ServiceNow</li>
-          <li>Support enterprise application onboarding, disaster recovery planning, access governance, and security evidence management</li>
-        </ul>
-        <div class="exp-tags"><span>GRC</span><span>Risk Assessment</span><span>Security Compliance</span><span>IT Governance</span><span>Stakeholder Management</span><span>JIRA</span><span>ServiceNow</span></div>
+      <div class="hcl-card">
+        <div class="hcl-main">
+          <div class="hcl-topline"><span class="hcl-live-dot"></span> CURRENT ROLE <span class="hcl-top-sep">/</span> ENTERPRISE BANKING TECHNOLOGY</div>
+          <div class="exp-dates">AUG 2025 – PRESENT · BENGALURU, INDIA</div>
+          <div class="exp-role">IT Application Owner <span>(Senior Management Trainee) @ HCL Technologies</span></div>
+          <p class="hcl-summary">Working across 42 enterprise banking applications in a governance and risk-focused role — connecting application teams, cybersecurity, infrastructure and business stakeholders to keep critical controls and remediation moving.</p>
+          <ul class="exp-bullets hcl-bullets">
+            <li>Coordinate application governance, risk and security compliance across 42 enterprise banking applications, working with ITAOs, engineering teams and business stakeholders.</li>
+            <li>Coordinate security assessments including OSS attestations, SSO onboarding, PQC vendor assessments and risk reviews within SLA timelines.</li>
+            <li>Drive cross-functional follow-ups across application teams, cybersecurity, infrastructure and vendors to resolve compliance gaps.</li>
+            <li>Track control execution, non-compliance remediation and project milestones through JIRA and ServiceNow.</li>
+            <li>Support application onboarding, disaster recovery planning, access governance and security evidence management.</li>
+          </ul>
+          <div class="hcl-tags"><span>IT Governance</span><span>Application Risk</span><span>GRC</span><span>Security Compliance</span><span>Risk Assessments</span><span>Stakeholder Management</span><span>JIRA</span><span>ServiceNow</span></div>
+        </div>
+        <div class="hcl-visual" aria-hidden="true">
+          <div class="hcl-ring hcl-ring-one"></div><div class="hcl-ring hcl-ring-two"></div>
+          <div class="hcl-core"><strong>42</strong><span>APPLICATIONS</span></div>
+          <div class="hcl-orbit-label hcl-label-top">GOVERN</div><div class="hcl-orbit-label hcl-label-right">ASSESS</div><div class="hcl-orbit-label hcl-label-bottom">SECURE</div>
+        </div>
+        <div class="hcl-foot"><span>FINANCIAL SERVICES · TECHNOLOGY RISK</span><span>01 / 02</span></div>
       </div>
     </div>
 
