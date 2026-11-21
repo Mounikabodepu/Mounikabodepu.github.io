@@ -566,6 +566,43 @@
   @media(max-width:760px){.contact-shell{grid-template-columns:1fr;gap:34px}.contact-side{max-width:none}.contact-shell-foot{grid-column:auto}}
   @media(max-width:480px){footer.contact-footer{padding:58px 0 30px}.contact-shell{padding:23px 18px}.contact-side{padding:14px}.contact-headline{font-size:42px}}
 
+
+  /* ---------- BEYOND THE WORK / INTERACTIVE HOBBIES ---------- */
+  .beyond-section{position:relative;overflow:hidden}
+  .beyond-intro{display:flex;align-items:center;gap:22px;max-width:760px;margin:-12px 0 30px;padding:18px 22px;border-left:2px solid var(--signal);background:linear-gradient(100deg,rgba(105,240,209,.07),rgba(112,167,255,.035),transparent)}
+  .beyond-intro-mark{position:relative;flex:0 0 68px;color:var(--signal);font:700 14px/1.05 var(--mono);letter-spacing:.05em}
+  .beyond-intro-mark span{position:absolute;right:2px;top:-7px;color:var(--electric);font-size:16px}
+  .beyond-intro p{max-width:65ch;color:var(--text-dim);font-size:13px;line-height:1.75}
+  .hobby-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .hobby-card{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(151,180,211,.16);background:linear-gradient(145deg,rgba(15,27,43,.92),rgba(8,15,27,.96));transition:border-color .22s,transform .22s,background .22s,box-shadow .22s}
+  .hobby-card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:linear-gradient(180deg,var(--signal),var(--electric));opacity:.35;transition:opacity .22s}
+  .hobby-card:hover,.hobby-card.is-open{border-color:rgba(105,240,209,.43);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.18),0 0 22px rgba(105,240,209,.045)}
+  .hobby-card:hover:before,.hobby-card.is-open:before{opacity:1}
+  .hobby-featured{background:radial-gradient(ellipse at 95% 0%,rgba(105,240,209,.12),transparent 55%),linear-gradient(145deg,rgba(15,35,43,.97),rgba(8,15,27,.97))}
+  .hobby-sport{background:radial-gradient(ellipse at 95% 0%,rgba(112,167,255,.13),transparent 55%),linear-gradient(145deg,rgba(16,27,46,.97),rgba(8,15,27,.97))}
+  .hobby-trigger{width:100%;min-height:184px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:17px 16px 14px;border:0;background:transparent;color:inherit;cursor:pointer;font:inherit}
+  .hobby-trigger:focus-visible{outline:2px solid var(--signal);outline-offset:-4px}
+  .hobby-number{color:var(--text-dimmer);font:8px var(--mono);letter-spacing:.1em}
+  .hobby-symbol{align-self:flex-end;margin-top:-4px;color:var(--signal);font:28px/1 var(--sans);text-shadow:0 0 18px rgba(105,240,209,.2)}
+  .hobby-title{margin-top:8px;color:var(--text);font:650 15px var(--sans);letter-spacing:-.02em}
+  .hobby-subtitle{margin-top:5px;color:var(--text-dimmer);font:10px/1.5 var(--mono)}
+  .hobby-open{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:auto;padding-top:16px;color:#9EC6D0;font:8px var(--mono);letter-spacing:.13em}
+  .hobby-open b{display:grid;place-items:center;width:22px;height:22px;border:1px solid rgba(105,240,209,.25);border-radius:50%;color:var(--signal);font-size:13px;font-weight:400;transition:transform .2s,background .2s}
+  .hobby-card.is-open .hobby-open b{transform:rotate(45deg);background:rgba(105,240,209,.1)}
+  .hobby-detail{padding:0 16px 17px;border-top:1px solid rgba(151,180,211,.13);animation:hobbyReveal .22s ease both}
+  .hobby-detail[hidden]{display:none}
+  .hobby-detail p{padding-top:13px;color:var(--text-dim);font-size:11px;line-height:1.7}
+  .hobby-stat{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:13px;padding-top:10px;border-top:1px solid rgba(151,180,211,.12)}
+  .hobby-stat strong{color:var(--signal);font:700 20px var(--mono)}
+  .hobby-stat span{margin-right:9px;color:var(--text-dimmer);font:7px var(--mono);letter-spacing:.08em}
+  .hobby-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+  .hobby-pills span{padding:4px 6px;border:1px solid rgba(112,167,255,.18);color:#AFC6E1;font:7px var(--mono);letter-spacing:.06em}
+  @keyframes hobbyReveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .beyond-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:13px;border-top:1px solid var(--line);color:var(--text-dimmer);font:8px var(--mono);letter-spacing:.12em}
+  @media(max-width:900px){.hobby-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:520px){.hobby-grid{grid-template-columns:1fr}.hobby-trigger{min-height:155px}.beyond-intro{align-items:flex-start;padding:16px}.beyond-intro-mark{flex-basis:54px;font-size:12px}.beyond-foot{flex-direction:column}}
+  @media(prefers-reduced-motion:reduce){.hobby-card,.hobby-open b{transition:none}.hobby-detail{animation:none}}
+
 </style>
 </head>
 <body>
@@ -580,6 +617,7 @@
       <a href="#case-studies">Case studies</a>
       <a href="#experience">Experience</a>
       <a href="#about">About</a>
+      <a href="#beyond">Beyond work</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -847,6 +885,24 @@
   </div>
 </section>
 
+<section id="beyond" class="beyond-section">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Beyond the work / 07</div><h2 class="section-title">A little more human, a little less screen.</h2><p class="section-sub">The things that keep me curious, creative and connected. Pick a card to explore a little more.</p></div>
+    <div class="beyond-intro"><div class="beyond-intro-mark">OFF<br>SCREEN<span>✳</span></div><p>Some of my favourite moments happen away from a screen — on stage, on a court, making something by hand, or discovering a new place with good company.</p></div>
+    <div class="hobby-grid" id="hobbyGrid">
+      <article class="hobby-card hobby-featured" data-hobby><button class="hobby-trigger" type="button" aria-expanded="true" aria-controls="hobby-dance"><span class="hobby-number">01 / THE CLASSICAL SIDE</span><span class="hobby-symbol">✧</span><span class="hobby-title">Kuchipudi dance</span><span class="hobby-subtitle">Nine years of rhythm, discipline &amp; expression</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-dance"><p>Dance has been a big part of my life. I trained in Kuchipudi for 9 years and performed on stage more than 30 times. It taught me discipline, patience, storytelling and the joy of expressing something without words.</p><div class="hobby-stat"><strong>9</strong><span>YEARS OF TRAINING</span><strong>30+</strong><span>STAGE PERFORMANCES</span></div></div></article>
+      <article class="hobby-card hobby-featured hobby-sport" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-badminton"><span class="hobby-number">02 / THE COMPETITIVE SIDE</span><span class="hobby-symbol">◎</span><span class="hobby-title">Ball badminton</span><span class="hobby-subtitle">District-level player</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-badminton" hidden><p>I played ball badminton at district level. Sport gave me a love for teamwork, focus, quick decisions and showing up consistently — lessons that travel well beyond the court.</p><div class="hobby-pills"><span>TEAMWORK</span><span>FOCUS</span><span>DISCIPLINE</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-arts"><span class="hobby-number">03 / THE MAKER SIDE</span><span class="hobby-symbol">✳</span><span class="hobby-title">Arts &amp; crafts</span><span class="hobby-subtitle">Making things with my hands</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-arts" hidden><p>I love arts and crafts — experimenting, creating and enjoying the process of turning a simple idea into something tangible. It is my kind of creative reset.</p><div class="hobby-pills"><span>CREATE</span><span>EXPERIMENT</span><span>MAKE</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-travel"><span class="hobby-number">04 / THE EXPLORER SIDE</span><span class="hobby-symbol">⌖</span><span class="hobby-title">Travel &amp; discovery</span><span class="hobby-subtitle">New places, new perspectives</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-travel" hidden><p>I love travelling, exploring unfamiliar places and finding the little details that make each place memorable. Every trip is a chance to pause, observe and come back with a fresh perspective.</p><div class="hobby-pills"><span>EXPLORE</span><span>NOTICE</span><span>WANDER</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-nature"><span class="hobby-number">05 / THE OUTDOOR SIDE</span><span class="hobby-symbol">❋</span><span class="hobby-title">Nature &amp; long walks</span><span class="hobby-subtitle">A little fresh air goes a long way</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-nature" hidden><p>Walking, being outdoors and spending time around nature help me slow down, reset and make space for new thoughts.</p><div class="hobby-pills"><span>WALK</span><span>RESET</span><span>RECHARGE</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-music"><span class="hobby-number">06 / THE SOUNDTRACK</span><span class="hobby-symbol">♫</span><span class="hobby-title">Music</span><span class="hobby-subtitle">A soundtrack for every mood</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-music" hidden><p>Music is part of how I unwind, find energy and enjoy the everyday moments — whether I am working on something or taking a break.</p><div class="hobby-pills"><span>LISTEN</span><span>FEEL</span><span>REPEAT</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-building"><span class="hobby-number">07 / THE CURIOUS SIDE</span><span class="hobby-symbol">⌘</span><span class="hobby-title">Building &amp; learning</span><span class="hobby-subtitle">Side projects, new tools &amp; ideas</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-building" hidden><p>I enjoy building side projects and learning new technologies. It is where curiosity turns into experiments — and where I get to understand an idea by making something useful with it.</p><div class="hobby-pills"><span>BUILD</span><span>LEARN</span><span>ITERATE</span></div></div></article>
+      <article class="hobby-card" data-hobby><button class="hobby-trigger" type="button" aria-expanded="false" aria-controls="hobby-culture"><span class="hobby-number">08 / THE SLOW-DOWN SIDE</span><span class="hobby-symbol">◌</span><span class="hobby-title">Stories &amp; good company</span><span class="hobby-subtitle">Films, conversations &amp; real connection</span><span class="hobby-open">EXPLORE <b>＋</b></span></button><div class="hobby-detail" id="hobby-culture" hidden><p>I enjoy watching movies and series, but I value time with people even more — meaningful conversations, shared experiences and being present. I prefer living the moment over spending too much time on social media.</p><div class="hobby-pills"><span>WATCH</span><span>CONNECT</span><span>BE PRESENT</span></div></div></article>
+    </div>
+    <div class="beyond-foot"><span>MORE THAN A JOB TITLE</span><span>MOVE · MAKE · EXPLORE · CONNECT</span></div>
+  </div>
+</section>
+
 <footer id="contact" class="contact-footer">
   <div class="container">
     <div class="contact-shell">
@@ -891,7 +947,7 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  const revealTargets = document.querySelectorAll('section .section-head, .thumb-card, .cs-card, .exp-row, .about-grid, .skill-group, .mini-card');
+  const revealTargets = document.querySelectorAll('section .section-head, .thumb-card, .cs-card, .exp-row, .about-grid, .skill-group, .mini-card, .hobby-card, .beyond-intro');
   revealTargets.forEach(node => node.classList.add('reveal'));
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
@@ -906,6 +962,27 @@
   } else {
     revealTargets.forEach(node => node.classList.add('visible'));
   }
+
+  // Accessible, single-open hobby cards
+  document.querySelectorAll('[data-hobby] .hobby-trigger').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('[data-hobby]');
+      const detail = document.getElementById(button.getAttribute('aria-controls'));
+      const willOpen = button.getAttribute('aria-expanded') !== 'true';
+      document.querySelectorAll('[data-hobby]').forEach(other => {
+        const trigger = other.querySelector('.hobby-trigger');
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+        other.classList.remove('is-open');
+      });
+      if (willOpen) {
+        button.setAttribute('aria-expanded', 'true');
+        detail.hidden = false;
+        card.classList.add('is-open');
+      }
+    });
+  });
 
   // Typing effect
   const phrases = [
