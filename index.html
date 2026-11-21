@@ -200,6 +200,18 @@
   .contact-cell .v{ font-size:14px; }
   .footer-note{ margin-top:32px; font-family:var(--mono); font-size:11.5px; color:var(--text-dimmer); text-align:center; }
 
+  .creditlens-preview{background:radial-gradient(circle at 78% 18%,rgba(94,234,212,.16),transparent 38%),linear-gradient(145deg,#17242a,#10161c)!important;padding:18px}
+  .creditlens-visual{width:100%;max-width:370px;border:1px solid rgba(94,234,212,.24);background:rgba(7,13,17,.78);padding:14px;color:#E7E9EA;font-family:var(--mono);box-shadow:0 18px 45px rgba(0,0,0,.24)}
+  .cl-top,.cl-foot{display:flex;justify-content:space-between;gap:8px;font-size:8px;color:rgba(231,233,234,.48);letter-spacing:.05em}
+  .cl-flow{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:28px 0}
+  .cl-flow div{min-width:0;flex:1;border:1px solid rgba(94,234,212,.22);padding:9px 6px;text-align:center}
+  .cl-flow b,.cl-flow strong,.cl-flow small{display:block}
+  .cl-flow b{font-size:8px;color:var(--signal);margin-bottom:6px}
+  .cl-flow strong{font-size:9px;color:#E7E9EA}
+  .cl-flow small{font-size:7px;color:rgba(231,233,234,.48);margin-top:4px}
+  .cl-arrow{font-size:12px;color:var(--signal)}
+  .cl-foot{padding-top:10px;border-top:1px solid var(--line)}
+  .cl-foot em{font-style:normal;color:var(--flag)}
   .cashflow-preview{background:radial-gradient(circle at 82% 18%,rgba(94,234,212,.15),transparent 38%),linear-gradient(145deg,#17242a,#10161c)!important;padding:18px}
   .cashflow-visual{width:100%;max-width:370px;border:1px solid rgba(94,234,212,.24);background:rgba(7,13,17,.78);padding:14px;color:#E7E9EA;font-family:var(--mono);box-shadow:0 18px 45px rgba(0,0,0,.24)}
   .cf-top,.cf-foot{display:flex;justify-content:space-between;gap:8px;font-size:8px;color:rgba(231,233,234,.48);letter-spacing:.06em}
@@ -283,6 +295,29 @@
 
 
       <div class="thumb-card">
+        <div class="thumb-preview creditlens-preview" aria-label="CreditLens AI product workflow preview">
+          <div class="creditlens-visual">
+            <div class="cl-top"><span>CREDITLENS / RISK INTELLIGENCE</span><span>LIVE DEMO</span></div>
+            <div class="cl-flow">
+              <div><b>01</b><strong>Predict</strong><small>Credit risk model</small></div>
+              <span class="cl-arrow">→</span>
+              <div><b>02</b><strong>Explain</strong><small>SHAP drivers</small></div>
+              <span class="cl-arrow">→</span>
+              <div><b>03</b><strong>Review</strong><small>AI analyst copilot</small></div>
+            </div>
+            <div class="cl-foot"><span>MODEL-ASSISTED INSIGHT</span><em>HUMAN REVIEW REQUIRED</em></div>
+          </div>
+        </div>
+        <div class="thumb-body">
+          <div class="thumb-meta-row"><div class="thumb-meta"><b>02</b> · AI Product · Credit Risk</div><span class="thumb-badge">Live</span></div>
+          <a class="thumb-title" style="display:block;" href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">CreditLens AI</a>
+          <p class="thumb-desc">A credit-risk intelligence prototype combining a tuned Random Forest model, borrower-level SHAP explanations, and a Gemini-powered analyst copilot. Supports sample-data exploration and CSV-based assessment, with the analyst retaining the final decision.</p>
+          <div class="stack-row terms" style="margin:14px 0 0;"><span>Credit risk ML</span><span>SHAP</span><span>Gemini API</span><span>Explainable AI</span></div>
+          <div class="thumb-links"><a href="https://creditlens-ai-huyf5uuahldbov3iffzvdh.streamlit.app/" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/Mounikabodepu/CreditLens-AI" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </div>
+
+      <div class="thumb-card">
         <a class="thumb-link" href="prd.html?p=protein">
           <div class="thumb-preview">
             <img src="protein-advisor-screenshot.png" alt="Budget Protein Recipe Advisor app screenshot">
@@ -290,7 +325,7 @@
         </a>
         <div class="thumb-body">
           <div class="thumb-meta-row">
-            <div class="thumb-meta"><b>01</b> · AI Product · Nutrition</div>
+            <div class="thumb-meta"><b>03</b> · AI Product · Nutrition</div>
             <span class="thumb-badge">Live</span>
           </div>
           <a class="thumb-title" style="display:block;" href="prd.html?p=protein">Budget Protein Recipe Advisor</a>
@@ -306,7 +341,7 @@
         </div>
         <div class="thumb-body">
           <div class="thumb-meta-row">
-            <div class="thumb-meta"><b>02</b> · AI Agent · Fraud Detection</div>
+            <div class="thumb-meta"><b>04</b> · AI Agent · Fraud Detection</div>
             <span class="thumb-badge wip">In progress</span>
           </div>
           <a class="thumb-title" style="display:block;" href="prd.html?p=fraud">Fraud Detection Copilot</a>
@@ -322,7 +357,7 @@
         </div>
         <div class="thumb-body">
           <div class="thumb-meta-row">
-            <div class="thumb-meta"><b>03</b> · Full-Stack AI · Career</div>
+            <div class="thumb-meta"><b>05</b> · Full-Stack AI · Career</div>
             <span class="thumb-badge wip">In progress</span>
           </div>
           <a class="thumb-title" style="display:block;" href="prd.html?p=jobs">Job Search Copilot</a>
